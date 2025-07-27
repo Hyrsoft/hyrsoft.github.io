@@ -101,7 +101,9 @@ theme: shokax # 主题名称，确保已安装对应主题
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: git
+  repo: https://github.com/haoruanwn/haoruanwn.github.io.git
+  branch: main 
 
 markdown:
   render: # 渲染器设置
