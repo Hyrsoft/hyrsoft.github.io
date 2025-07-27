@@ -1,0 +1,318 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1"><meta name="renderer" content="webkit"><link rel="icon" type="image/ico" sizes="32x32" href="/assets/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="alternate" href="/rss.xml" title="好暖好温暖的博客" type="application/rss+xml"><link rel="alternate" href="/atom.xml" title="好暖好温暖的博客" type="application/atom+xml"><link rel="alternate" type="application/json" title="好暖好温暖的博客" href="http://haoruanwn.github.io/feed.json"><link rel="preconnect" href="https://s4.zstatic.net"><link rel="preconnect" href="https://at.alicdn.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CFredericka%20the%20Great:400,400italic,700,700italic%7CNoto%20Serif%20JP:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic%7CInconsolata:400,400italic,700,700italic&amp;display=swap&amp;subset=latin,latin-ext" media="none" onload="this.media='all'"><link rel="modulepreload" href="/js/siteInit.js"><link rel="modulepreload" href="/js/nyx-player-LFECBJEK.js"><link rel="modulepreload" href="/js/copy-tex-QOPFCG6H.js"><link rel="modulepreload" href="/js/codeblock-K5WKW6OL.js"><link rel="modulepreload" href="/js/post-JGRFQC4J.js"><link rel="modulepreload" href="/js/chunk-VFRCN56V.js"><link rel="modulepreload" href="/js/chunk-77AOTSR7.js"><link rel="modulepreload" href="/js/index.esm-ZAEFW5NQ.js"><link rel="modulepreload" href="/js/chunk-HJSTZ4VX.js"><link rel="modulepreload" href="/js/chunk-HTVJTJXU.js"><link rel="stylesheet" href="/css/siteInit.css" media="none" onload="this.media='all'"><link rel="preload" href="/assets/4.png" as="image" fetchpriority="high"><link rel="preload" href="/assets/4.png" as="image" fetchpriority="high"><link rel="preload" href="/assets/1.png" as="image" fetchpriority="high"><link rel="preload" href="/assets/6.png" as="image" fetchpriority="high"><link rel="preload" href="/assets/6.png" as="image" fetchpriority="high"><link rel="preload" href="/assets/2.png" as="image" fetchpriority="high"><meta name="description" content="记录学习与生活的点滴"><link rel="canonical" href="http://haoruanwn.github.io/2025/07/27/%E6%96%87%E7%AB%A0%E6%B5%8B%E8%AF%95/"><link rel="stylesheet" href="/css/post.css?v=0.5.2-hotfix.1"><link rel="stylesheet" href="/css/mermaid.css?v=0.5.2-hotfix.1"><!-- 临时处理--><link rel="stylesheet" media="none" onload="this.media='all'" href="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/katex.min.css"><title>Git 常用命令总结</title><meta name="generator" content="Hexo 7.3.0"></head><body itemscope="" itemtype="http://schema.org/WebPage"><div id="loading"><div class="cat"><div class="body"></div><div class="head"><div class="face"></div></div><div class="foot"><div class="tummy-end"></div><div class="bottom"></div><div class="legs left"></div><div class="legs right"></div></div><div class="paw"><div class="hands left"></div><div class="hands right"></div></div></div></div><div id="container"><header id="header" itemscope="" itemtype="http://schema.org/WPHeader"><div class="inner"><div id="brand"><div class="pjax"><h1 itemprop="name headline">Git 常用命令总结</h1><div class="meta"><span class="item" title="创建时间：2025-07-27 17:16:35"><span class="icon"><i class="ic i-calendar"></i></span><span class="text">发表于</span><time itemprop="dateCreated datePublished" datetime="2025-07-27T17:16:35+08:00">2025-07-27</time></span><span class="item" title="本文字数"><span class="icon"><i class="ic i-pen"></i></span><span class="text">本文字数</span><span>4.5k</span><span class="text">字</span></span><span class="item" title="阅读时长"><span class="icon"><i class="ic i-clock"></i></span><span class="text">阅读时长</span><span>4 分钟</span></span></div></div></div><nav id="nav"><div class="inner"><div class="toggle"><div class="lines" aria-label="切换导航栏"><span class="line"></span><span class="line"></span><span class="line"></span></div></div><ul class="menu"><li class="item title"><a href="/" rel="start">testName</a></li></ul><ul class="right" id="rightNav"><li class="item theme"><i class="ic i-sun"></i></li><li class="item search"><i class="ic i-search"></i></li></ul></div></nav></div><div class="pjax" id="imgs"><ul><li class="item" style="background-image: url(&quot;/assets/4.png&quot;);"></li><li class="item" style="background-image: url(&quot;/assets/4.png&quot;);"></li><li class="item" style="background-image: url(&quot;/assets/1.png&quot;);"></li><li class="item" style="background-image: url(&quot;/assets/6.png&quot;);"></li><li class="item" style="background-image: url(&quot;/assets/6.png&quot;);"></li><li class="item" style="background-image: url(&quot;/assets/2.png&quot;);"></li></ul></div></header><div id="waves"><svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path></defs><g class="parallax"><use xlink:href="#gentle-wave" x="48" y="0"></use><use xlink:href="#gentle-wave" x="48" y="3"></use><use xlink:href="#gentle-wave" x="48" y="5"></use><use xlink:href="#gentle-wave" x="48" y="7"></use></g></svg></div><main><div class="inner"><div class="pjax" id="main"><div class="article wrap"><div class="breadcrumb" itemlistelement="" itemscope="" itemtype="https://schema.org/BreadcrumbList"><i class="ic i-home"></i><span><a href="/">首页</a></span></div><article class="post block" itemscope="itemscope" itemtype="http://schema.org/Article" lang="zh-CN"><link itemprop="mainEntityOfPage" href="http://haoruanwn.github.io/2025/07/27/%E6%96%87%E7%AB%A0%E6%B5%8B%E8%AF%95/"><span hidden="hidden" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><meta itemprop="image" content="/assets/avatar.jpg"><meta itemprop="name" content="好软好温暖"><meta itemprop="description" content="一个电子信息系的大学生, 记录学习与生活的点滴"></span><span hidden="hidden" itemprop="publisher" itemscope="itemscope" itemtype="http://schema.org/Organization"><meta itemprop="name" content="好暖好温暖的博客"></span><div class="body md" itemprop="articleBody"><h1 id="git-常用命令笔记"><a class="anchor" href="#git-常用命令笔记">#</a> Git 常用命令笔记</h1>
+<p>本笔记旨在整理 Git 的基础配置、本地与远程仓库管理、分支操作及一些实用技巧。</p>
+<hr>
+<h2 id="一-基础配置"><a class="anchor" href="#一-基础配置">#</a> 一、基础配置</h2>
+<h3 id="1-查看与设置用户信息"><a class="anchor" href="#1-查看与设置用户信息">#</a> 1. 查看与设置用户信息</h3>
+<p>在首次使用 Git 前，需要配置全局的用户名和邮箱。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">功能说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>git config --list</code></td>
+<td style="text-align:left">查看当前的 Git 配置信息。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>git config --global user.name "Your Name"</code></td>
+<td style="text-align:left">设置全局用户名。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>git config --global user.email "your.email@example.com"</code></td>
+<td style="text-align:left">设置全局用户邮箱。</td>
+</tr>
+</tbody>
+</table>
+<pre class="shiki shiki-themes vitesse-light vitesse-dark" style="background-color:#ffffff;--shiki-dark-bg:#121212;color:#393a34;--shiki-dark:#dbd7caee" tabindex="0"><code class="language-bash"><span class="line"><span style="color:#A0ADA0;--shiki-dark:#758575DD"># 查看所有配置</span></span>
+<span class="line"><span style="color:#59873A;--shiki-dark:#80A665">git</span><span style="color:#B56959;--shiki-dark:#C98A7D"> config</span><span style="color:#A65E2B;--shiki-dark:#C99076"> --list</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#A0ADA0;--shiki-dark:#758575DD"># 设置全局用户名和邮箱</span></span>
+<span class="line"><span style="color:#59873A;--shiki-dark:#80A665">git</span><span style="color:#B56959;--shiki-dark:#C98A7D"> config</span><span style="color:#A65E2B;--shiki-dark:#C99076"> --global</span><span style="color:#B56959;--shiki-dark:#C98A7D"> user.name</span><span style="color:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="color:#B56959;--shiki-dark:#C98A7D">Your Name</span><span style="color:#B5695977;--shiki-dark:#C98A7D77">"</span></span>
+<span class="line"><span style="color:#59873A;--shiki-dark:#80A665">git</span><span style="color:#B56959;--shiki-dark:#C98A7D"> config</span><span style="color:#A65E2B;--shiki-dark:#C99076"> --global</span><span style="color:#B56959;--shiki-dark:#C98A7D"> user.email</span><span style="color:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="color:#B56959;--shiki-dark:#C98A7D">your.email@example.com</span><span style="color:#B5695977;--shiki-dark:#C98A7D77">"</span></span></code></pre>
+<h3 id="2-配置-ssh-密钥"><a class="anchor" href="#2-配置-ssh-密钥">#</a> 2. 配置 SSH 密钥</h3>
+<p>为了免密与 GitHub 等远程仓库进行通信，推荐使用 SSH 协议。</p>
+<ol>
+<li>生成 SSH 密钥对。</li>
+<li>将公钥（通常是 <code>~/.ssh/id_rsa.pub</code>）的内容添加到 GitHub 账户的 SSH keys 设置中。</li>
+</ol>
+<p>配置完成后，可通过以下命令验证连接是否成功，出现欢迎信息即表示配置正确。</p>
+<pre class="shiki shiki-themes vitesse-light vitesse-dark" style="background-color:#ffffff;--shiki-dark-bg:#121212;color:#393a34;--shiki-dark:#dbd7caee" tabindex="0"><code class="language-bash"><span class="line"><span style="color:#59873A;--shiki-dark:#80A665">ssh</span><span style="color:#A65E2B;--shiki-dark:#C99076"> -T</span><span style="color:#B56959;--shiki-dark:#C98A7D"> git@github.com</span></span></code></pre>
+<hr>
+<h2 id="二-本地仓库管理"><a class="anchor" href="#二-本地仓库管理">#</a> 二、本地仓库管理</h2>
+<h3 id="1-初始化仓库-git-init"><a class="anchor" href="#1-初始化仓库-git-init">#</a> 1. 初始化仓库 (<code>git init</code>)</h3>
+<p>在项目根目录中执行此命令，将会创建一个 <code>.git</code> 文件夹，用于存储版本库的所有信息。</p>
+<pre class="shiki shiki-themes vitesse-light vitesse-dark" style="background-color:#ffffff;--shiki-dark-bg:#121212;color:#393a34;--shiki-dark:#dbd7caee" tabindex="0"><code class="language-bash"><span class="line"><span style="color:#59873A;--shiki-dark:#80A665">git</span><span style="color:#B56959;--shiki-dark:#C98A7D"> init</span></span></code></pre>
+<p><strong>设置默认分支名</strong>:<br>
+新版 Git 推荐使用 <code>main</code> 作为默认主分支名，可以通过以下命令进行全局配置，避免每次 <code>git init</code> 时都出现提示。</p>
+<pre class="shiki shiki-themes vitesse-light vitesse-dark" style="background-color:#ffffff;--shiki-dark-bg:#121212;color:#393a34;--shiki-dark:#dbd7caee" tabindex="0"><code class="language-bash"><span class="line"><span style="color:#59873A;--shiki-dark:#80A665">git</span><span style="color:#B56959;--shiki-dark:#C98A7D"> config</span><span style="color:#A65E2B;--shiki-dark:#C99076"> --global</span><span style="color:#B56959;--shiki-dark:#C98A7D"> init.defaultBranch</span><span style="color:#B56959;--shiki-dark:#C98A7D"> main</span></span></code></pre>
+<p><strong>删除本地仓库</strong>:<br>
+直接删除项目根目录下的 <code>.git</code> 文件夹即可。</p>
+<pre class="shiki shiki-themes vitesse-light vitesse-dark" style="background-color:#ffffff;--shiki-dark-bg:#121212;color:#393a34;--shiki-dark:#dbd7caee" tabindex="0"><code class="language-bash"><span class="line"><span style="color:#A0ADA0;--shiki-dark:#758575DD"># 在 Linux / macOS / Git Bash 中</span></span>
+<span class="line"><span style="color:#59873A;--shiki-dark:#80A665">rm</span><span style="color:#A65E2B;--shiki-dark:#C99076"> -rf</span><span style="color:#B56959;--shiki-dark:#C98A7D"> .git</span></span></code></pre>
+<h3 id="2-提交代码-git-add-git-commit"><a class="anchor" href="#2-提交代码-git-add-git-commit">#</a> 2. 提交代码 (<code>git add</code> &amp; <code>git commit</code>)</h3>
+<p>代码提交分为两步：首先使用 <code>git add</code> 将文件更改添加到暂存区，然后使用 <code>git commit</code> 将暂存区的内内容永久保存到本地仓库。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">功能说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>git add &lt;file&gt;</code></td>
+<td style="text-align:left">将指定文件的更改添加到暂存区。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>git add .</code></td>
+<td style="text-align:left">将当前目录下所有文件的更改添加到暂存区。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>git commit -m "commit message"</code></td>
+<td style="text-align:left">将暂存区内容提交到仓库，并附上提交信息。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>git commit -am "commit message"</code></td>
+<td style="text-align:left">将所有已跟踪文件的更改直接暂存并提交（跳过<code>git add</code>）。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-查看提交历史-git-log"><a class="anchor" href="#3-查看提交历史-git-log">#</a> 3. 查看提交历史 (<code>git log</code>)</h3>
+<p><code>git log</code> 命令用于查看从近到远的提交历史。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">功能说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>git log</code></td>
+<td style="text-align:left">显示详细的提交历史（Commit ID, 作者, 日期, 提交信息）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>git log --stat</code></td>
+<td style="text-align:left">在 <code>git log</code> 的基础上，显示每次提交所修改的文件列表。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>git log --oneline</code></td>
+<td style="text-align:left">以简洁的单行格式显示提交历史。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>git show &lt;commit_id&gt;</code></td>
+<td style="text-align:left">显示某次特定提交的详细变更内容（代码差异）。</td>
+</tr>
+</tbody>
+</table>
+<pre class="shiki shiki-themes vitesse-light vitesse-dark" style="background-color:#ffffff;--shiki-dark-bg:#121212;color:#393a34;--shiki-dark:#dbd7caee" tabindex="0"><code class="language-bash"><span class="line"><span style="color:#A0ADA0;--shiki-dark:#758575DD"># 查看简略历史</span></span>
+<span class="line"><span style="color:#59873A;--shiki-dark:#80A665">git</span><span style="color:#B56959;--shiki-dark:#C98A7D"> log</span><span style="color:#A65E2B;--shiki-dark:#C99076"> --oneline</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#A0ADA0;--shiki-dark:#758575DD"># 查看某次提交的具体修改</span></span>
+<span class="line"><span style="color:#59873A;--shiki-dark:#80A665">git</span><span style="color:#B56959;--shiki-dark:#C98A7D"> show</span><span style="color:#B56959;--shiki-dark:#C98A7D"> 9b568e99</span></span></code></pre>
+<h3 id="4-版本回退-git-reset"><a class="anchor" href="#4-版本回退-git-reset">#</a> 4. 版本回退 (<code>git reset</code>)</h3>
+<p><code>git reset</code> 可以将当前分支的 <code>HEAD</code> 指针移动到指定的提交记录，常用于撤销提交。</p>
+<blockquote>
+<p><strong>警告</strong>: <code>--hard</code> 参数会丢弃工作区和暂存区中自指定提交以来的所有更改，操作具有破坏性，请谨慎使用。</p>
+</blockquote>
+<pre class="shiki shiki-themes vitesse-light vitesse-dark" style="background-color:#ffffff;--shiki-dark-bg:#121212;color:#393a34;--shiki-dark:#dbd7caee" tabindex="0"><code class="language-bash"><span class="line"><span style="color:#A0ADA0;--shiki-dark:#758575DD"># 回退到指定的 commit，并丢弃之后的所有修改</span></span>
+<span class="line"><span style="color:#59873A;--shiki-dark:#80A665">git</span><span style="color:#B56959;--shiki-dark:#C98A7D"> reset</span><span style="color:#A65E2B;--shiki-dark:#C99076"> --hard</span><span style="color:#AB5959;--shiki-dark:#CB7676"> </span><span style="color:#AB5959;--shiki-dark:#CB7676">&lt;</span><span style="color:#B56959;--shiki-dark:#C98A7D">commit_i</span><span style="color:#393A34;--shiki-dark:#DBD7CAEE">d</span><span style="color:#AB5959;--shiki-dark:#CB7676">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#A0ADA0;--shiki-dark:#758575DD"># 示例：回退到 9b568e99 这个提交</span></span>
+<span class="line"><span style="color:#59873A;--shiki-dark:#80A665">git</span><span style="color:#B56959;--shiki-dark:#C98A7D"> reset</span><span style="color:#A65E2B;--shiki-dark:#C99076"> --hard</span><span style="color:#B56959;--shiki-dark:#C98A7D"> 9b568e99</span></span></code></pre>
+<hr>
+<h2 id="三-分支管理"><a class="anchor" href="#三-分支管理">#</a> 三、分支管理</h2>
+<h3 id="1-查看与状态检查"><a class="anchor" href="#1-查看与状态检查">#</a> 1. 查看与状态检查</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">功能说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>git branch</code></td>
+<td style="text-align:left">列出所有本地分支，并用 <code>*</code> 标记当前所在分支。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>git status</code></td>
+<td style="text-align:left">显示当前分支的状态，包括已修改、已暂存和未跟踪的文件。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-创建与切换分支"><a class="anchor" href="#2-创建与切换分支">#</a> 2. 创建与切换分支</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">功能说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>git branch &lt;branch_name&gt;</code></td>
+<td style="text-align:left">创建一个新分支，但仍停留在当前分支。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>git checkout &lt;branch_name&gt;</code></td>
+<td style="text-align:left">切换到已存在的分支。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>git checkout -b &lt;branch_name&gt;</code></td>
+<td style="text-align:left">创建一个新分支，并立即切换到该分支。</td>
+</tr>
+</tbody>
+</table>
+<pre class="shiki shiki-themes vitesse-light vitesse-dark" style="background-color:#ffffff;--shiki-dark-bg:#121212;color:#393a34;--shiki-dark:#dbd7caee" tabindex="0"><code class="language-bash"><span class="line"><span style="color:#A0ADA0;--shiki-dark:#758575DD"># 创建一个名为 "develop" 的分支并切换过去</span></span>
+<span class="line"><span style="color:#59873A;--shiki-dark:#80A665">git</span><span style="color:#B56959;--shiki-dark:#C98A7D"> checkout</span><span style="color:#A65E2B;--shiki-dark:#C99076"> -b</span><span style="color:#B56959;--shiki-dark:#C98A7D"> develop</span></span></code></pre>
+<h3 id="3-合并分支-git-merge"><a class="anchor" href="#3-合并分支-git-merge">#</a> 3. 合并分支 (<code>git merge</code>)</h3>
+<p>将其他分支的更改合并到当前所在的分支。</p>
+<p><strong>流程示例：</strong> 将 <code>develop</code> 分支合并到 <code>main</code> 分支。</p>
+<ol>
+<li>首先，切换到接收更改的目标分支 <code>main</code>。<pre class="shiki shiki-themes vitesse-light vitesse-dark" style="background-color:#ffffff;--shiki-dark-bg:#121212;color:#393a34;--shiki-dark:#dbd7caee" tabindex="0"><code class="language-bash"><span class="line"><span style="color:#59873A;--shiki-dark:#80A665">git</span><span style="color:#B56959;--shiki-dark:#C98A7D"> checkout</span><span style="color:#B56959;--shiki-dark:#C98A7D"> main</span></span></code></pre>
+</li>
+<li>然后，执行 <code>merge</code> 命令。<pre class="shiki shiki-themes vitesse-light vitesse-dark" style="background-color:#ffffff;--shiki-dark-bg:#121212;color:#393a34;--shiki-dark:#dbd7caee" tabindex="0"><code class="language-bash"><span class="line"><span style="color:#59873A;--shiki-dark:#80A665">git</span><span style="color:#B56959;--shiki-dark:#C98A7D"> merge</span><span style="color:#B56959;--shiki-dark:#C98A7D"> develop</span></span></code></pre>
+</li>
+</ol>
+<h3 id="4-删除分支-git-branch-d"><a class="anchor" href="#4-删除分支-git-branch-d">#</a> 4. 删除分支 (<code>git branch -d</code>)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">功能说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>git branch -d &lt;branch_name&gt;</code></td>
+<td style="text-align:left">删除已合并的分支。如果分支包含未合并的更改，会提示失败。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>git branch -D &lt;branch_name&gt;</code></td>
+<td style="text-align:left">强制删除一个分支，无论其是否已合并。</td>
+</tr>
+</tbody>
+</table>
+<pre class="shiki shiki-themes vitesse-light vitesse-dark" style="background-color:#ffffff;--shiki-dark-bg:#121212;color:#393a34;--shiki-dark:#dbd7caee" tabindex="0"><code class="language-bash"><span class="line"><span style="color:#A0ADA0;--shiki-dark:#758575DD"># 删除已合并的 develop 分支</span></span>
+<span class="line"><span style="color:#59873A;--shiki-dark:#80A665">git</span><span style="color:#B56959;--shiki-dark:#C98A7D"> branch</span><span style="color:#A65E2B;--shiki-dark:#C99076"> -d</span><span style="color:#B56959;--shiki-dark:#C98A7D"> develop</span></span></code></pre>
+<hr>
+<h2 id="四-远程仓库协作"><a class="anchor" href="#四-远程仓库协作">#</a> 四、远程仓库协作</h2>
+<h3 id="1-关联远程仓库-git-remote"><a class="anchor" href="#1-关联远程仓库-git-remote">#</a> 1. 关联远程仓库 (<code>git remote</code>)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">功能说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>git remote -v</code></td>
+<td style="text-align:left">查看当前配置的所有远程仓库。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>git remote add &lt;name&gt; &lt;url&gt;</code></td>
+<td style="text-align:left">添加一个新的远程仓库，通常命名为 <code>origin</code>。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>git remote set-url &lt;name&gt; &lt;new_url&gt;</code></td>
+<td style="text-align:left">更新一个已存在的远程仓库地址。</td>
+</tr>
+</tbody>
+</table>
+<pre class="shiki shiki-themes vitesse-light vitesse-dark" style="background-color:#ffffff;--shiki-dark-bg:#121212;color:#393a34;--shiki-dark:#dbd7caee" tabindex="0"><code class="language-bash"><span class="line"><span style="color:#A0ADA0;--shiki-dark:#758575DD"># 关联一个新的远程仓库，命名为 origin</span></span>
+<span class="line"><span style="color:#59873A;--shiki-dark:#80A665">git</span><span style="color:#B56959;--shiki-dark:#C98A7D"> remote</span><span style="color:#B56959;--shiki-dark:#C98A7D"> add</span><span style="color:#B56959;--shiki-dark:#C98A7D"> origin</span><span style="color:#B56959;--shiki-dark:#C98A7D"> git@github.com:user/repo.git</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#A0ADA0;--shiki-dark:#758575DD"># 如果需要修改地址</span></span>
+<span class="line"><span style="color:#59873A;--shiki-dark:#80A665">git</span><span style="color:#B56959;--shiki-dark:#C98A7D"> remote</span><span style="color:#B56959;--shiki-dark:#C98A7D"> set-url</span><span style="color:#B56959;--shiki-dark:#C98A7D"> origin</span><span style="color:#B56959;--shiki-dark:#C98A7D"> git@github.com:user/new-repo.git</span></span></code></pre>
+<h3 id="2-推送至远程仓库-git-push"><a class="anchor" href="#2-推送至远程仓库-git-push">#</a> 2. 推送至远程仓库 (<code>git push</code>)</h3>
+<p>将本地分支的提交推送到远程仓库。</p>
+<pre class="shiki shiki-themes vitesse-light vitesse-dark" style="background-color:#ffffff;--shiki-dark-bg:#121212;color:#393a34;--shiki-dark:#dbd7caee" tabindex="0"><code class="language-bash"><span class="line"><span style="color:#A0ADA0;--shiki-dark:#758575DD"># 首次推送 master 分支，并设置上游跟踪关系</span></span>
+<span class="line"><span style="color:#59873A;--shiki-dark:#80A665">git</span><span style="color:#B56959;--shiki-dark:#C98A7D"> push</span><span style="color:#A65E2B;--shiki-dark:#C99076"> -u</span><span style="color:#B56959;--shiki-dark:#C98A7D"> origin</span><span style="color:#B56959;--shiki-dark:#C98A7D"> master</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#A0ADA0;--shiki-dark:#758575DD"># 后续推送</span></span>
+<span class="line"><span style="color:#59873A;--shiki-dark:#80A665">git</span><span style="color:#B56959;--shiki-dark:#C98A7D"> push</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#A0ADA0;--shiki-dark:#758575DD"># 推送其他分支，如 test 分支</span></span>
+<span class="line"><span style="color:#59873A;--shiki-dark:#80A665">git</span><span style="color:#B56959;--shiki-dark:#C98A7D"> push</span><span style="color:#A65E2B;--shiki-dark:#C99076"> -u</span><span style="color:#B56959;--shiki-dark:#C98A7D"> origin</span><span style="color:#B56959;--shiki-dark:#C98A7D"> test</span></span></code></pre>
+<blockquote>
+<p><strong>认证</strong>: 使用 <code>https</code> 协议推送时，通常需要输入个人访问令牌（Personal Access Token）；使用 <code>ssh</code> 协议则通过 SSH 密钥对自动认证。</p>
+</blockquote>
+<h3 id="3-克隆远程仓库-git-clone"><a class="anchor" href="#3-克隆远程仓库-git-clone">#</a> 3. 克隆远程仓库 (<code>git clone</code>)</h3>
+<p>从远程仓库下载一个完整的项目副本到本地。</p>
+<pre class="shiki shiki-themes vitesse-light vitesse-dark" style="background-color:#ffffff;--shiki-dark-bg:#121212;color:#393a34;--shiki-dark:#dbd7caee" tabindex="0"><code class="language-bash"><span class="line"><span style="color:#A0ADA0;--shiki-dark:#758575DD"># 克隆默认主分支</span></span>
+<span class="line"><span style="color:#59873A;--shiki-dark:#80A665">git</span><span style="color:#B56959;--shiki-dark:#C98A7D"> clone</span><span style="color:#B56959;--shiki-dark:#C98A7D"> git@github.com:user/repo.git</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#A0ADA0;--shiki-dark:#758575DD"># 克隆时指定特定分支</span></span>
+<span class="line"><span style="color:#59873A;--shiki-dark:#80A665">git</span><span style="color:#B56959;--shiki-dark:#C98A7D"> clone</span><span style="color:#A65E2B;--shiki-dark:#C99076"> -b</span><span style="color:#B56959;--shiki-dark:#C98A7D"> release/v8.2</span><span style="color:#B56959;--shiki-dark:#C98A7D"> https://github.com/lvgl/lvgl.git</span></span></code></pre>
+<hr>
+<h2 id="五-git-实用技巧"><a class="anchor" href="#五-git-实用技巧">#</a> 五、Git 实用技巧</h2>
+<h3 id="1-忽略文件-gitignore"><a class="anchor" href="#1-忽略文件-gitignore">#</a> 1. 忽略文件 (<code>.gitignore</code>)</h3>
+<p>通过在项目根目录创建 <code>.gitignore</code> 文件，可以指定不需要被 Git 跟踪的文件或目录（如编译产物、日志文件等）。</p>
+<p><strong>规则示例:</strong></p>
+<pre class="shiki shiki-themes vitesse-light vitesse-dark" style="background-color:#ffffff;--shiki-dark-bg:#121212;color:#393a34;--shiki-dark:#dbd7caee" tabindex="0"><code class="language-yml"><span class="line"><span style="color:#A0ADA0;--shiki-dark:#758575DD"># 忽略所有 .a 文件</span></span>
+<span class="line"><span style="color:#999999;--shiki-dark:#666666">*</span><span style="color:#B07D48;--shiki-dark:#BD976A">.a</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#A0ADA0;--shiki-dark:#758575DD"># 但不忽略 lib.a</span></span>
+<span class="line"><span style="color:#AB5959;--shiki-dark:#CB7676">!lib.a</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#A0ADA0;--shiki-dark:#758575DD"># 忽略 build/ 目录下的所有内容</span></span>
+<span class="line"><span style="color:#B56959;--shiki-dark:#C98A7D">build/</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#A0ADA0;--shiki-dark:#758575DD"># 忽略 doc/notes.txt 文件</span></span>
+<span class="line"><span style="color:#B56959;--shiki-dark:#C98A7D">doc/notes.txt</span></span></code></pre>
+<p><strong>清理已跟踪文件</strong>: 如果某个文件在添加到 <code>.gitignore</code> 之前已经被提交，需要先从 Git 的索引中移除它，然后再次提交。</p>
+<pre class="shiki shiki-themes vitesse-light vitesse-dark" style="background-color:#ffffff;--shiki-dark-bg:#121212;color:#393a34;--shiki-dark:#dbd7caee" tabindex="0"><code class="language-bash"><span class="line"><span style="color:#A0ADA0;--shiki-dark:#758575DD"># 从索引中移除 build 目录，但保留本地文件</span></span>
+<span class="line"><span style="color:#59873A;--shiki-dark:#80A665">git</span><span style="color:#B56959;--shiki-dark:#C98A7D"> rm</span><span style="color:#A65E2B;--shiki-dark:#C99076"> -r</span><span style="color:#A65E2B;--shiki-dark:#C99076"> --cached</span><span style="color:#B56959;--shiki-dark:#C98A7D"> build/</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#A0ADA0;--shiki-dark:#758575DD"># 提交 .gitignore 和移除操作</span></span>
+<span class="line"><span style="color:#59873A;--shiki-dark:#80A665">git</span><span style="color:#B56959;--shiki-dark:#C98A7D"> commit</span><span style="color:#A65E2B;--shiki-dark:#C99076"> -m</span><span style="color:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="color:#B56959;--shiki-dark:#C98A7D">Update .gitignore and untrack build directory</span><span style="color:#B5695977;--shiki-dark:#C98A7D77">"</span></span></code></pre>
+<h3 id="2-重命名分支"><a class="anchor" href="#2-重命名分支">#</a> 2. 重命名分支</h3>
+<h4 id="场景一分支未推送到远程"><a class="anchor" href="#场景一分支未推送到远程">#</a> 场景一：分支未推送到远程</h4>
+<pre class="shiki shiki-themes vitesse-light vitesse-dark" style="background-color:#ffffff;--shiki-dark-bg:#121212;color:#393a34;--shiki-dark:#dbd7caee" tabindex="0"><code class="language-bash"><span class="line"><span style="color:#A0ADA0;--shiki-dark:#758575DD"># 将 oldName 分支重命名为 newName</span></span>
+<span class="line"><span style="color:#59873A;--shiki-dark:#80A665">git</span><span style="color:#B56959;--shiki-dark:#C98A7D"> branch</span><span style="color:#A65E2B;--shiki-dark:#C99076"> -m</span><span style="color:#B56959;--shiki-dark:#C98A7D"> oldName</span><span style="color:#B56959;--shiki-dark:#C98A7D"> newName</span></span></code></pre>
+<h4 id="场景二分支已推送到远程"><a class="anchor" href="#场景二分支已推送到远程">#</a> 场景二：分支已推送到远程</h4>
+<p>需要分步操作：</p>
+<ol>
+<li><strong>重命名本地分支</strong><pre class="shiki shiki-themes vitesse-light vitesse-dark" style="background-color:#ffffff;--shiki-dark-bg:#121212;color:#393a34;--shiki-dark:#dbd7caee" tabindex="0"><code class="language-bash"><span class="line"><span style="color:#59873A;--shiki-dark:#80A665">git</span><span style="color:#B56959;--shiki-dark:#C98A7D"> branch</span><span style="color:#A65E2B;--shiki-dark:#C99076"> -m</span><span style="color:#B56959;--shiki-dark:#C98A7D"> oldName</span><span style="color:#B56959;--shiki-dark:#C98A7D"> newName</span></span></code></pre>
+</li>
+<li><strong>删除远程的旧分支</strong><pre class="shiki shiki-themes vitesse-light vitesse-dark" style="background-color:#ffffff;--shiki-dark-bg:#121212;color:#393a34;--shiki-dark:#dbd7caee" tabindex="0"><code class="language-bash"><span class="line"><span style="color:#59873A;--shiki-dark:#80A665">git</span><span style="color:#B56959;--shiki-dark:#C98A7D"> push</span><span style="color:#B56959;--shiki-dark:#C98A7D"> origin</span><span style="color:#A65E2B;--shiki-dark:#C99076"> --delete</span><span style="color:#B56959;--shiki-dark:#C98A7D"> oldName</span></span></code></pre>
+</li>
+<li><strong>推送新分支并建立跟踪关系</strong><pre class="shiki shiki-themes vitesse-light vitesse-dark" style="background-color:#ffffff;--shiki-dark-bg:#121212;color:#393a34;--shiki-dark:#dbd7caee" tabindex="0"><code class="language-bash"><span class="line"><span style="color:#59873A;--shiki-dark:#80A665">git</span><span style="color:#B56959;--shiki-dark:#C98A7D"> push</span><span style="color:#A65E2B;--shiki-dark:#C99076"> -u</span><span style="color:#B56959;--shiki-dark:#C98A7D"> origin</span><span style="color:#B56959;--shiki-dark:#C98A7D"> newName</span></span></code></pre>
+</li>
+</ol>
+</div><footer><div class="meta"><span class="item"><span class="icon"><i class="ic i-calendar-check"></i></span><span class="text">更新于 </span><time title="修改时间：2025-07-27 17:22:13" itemprop="dateModified" datetime="2025-07-27T17:22:13+08:00">2025-07-27</time></span></div><div class="reward"><button><i class="ic i-heartbeat"></i>赞赏</button><p>请我喝[茶]~(￣▽￣)~*</p><div id="qr"><div><img loading="lazy" src="/assets/wechatpay.avif" alt="好软好温暖 微信支付"><p>微信支付</p></div><div><img loading="lazy" src="/assets/alipay.avif" alt="好软好温暖 支付宝"><p>支付宝</p></div></div></div><div id="copyright"><ul><li class="author"><strong>本文作者：</strong>好软好温暖<i class="ic i-at"><em>@</em></i>好暖好温暖的博客</li><li class="link"><strong>本文链接：</strong><a href="http://haoruanwn.github.io/2025/07/27/%E6%96%87%E7%AB%A0%E6%B5%8B%E8%AF%95/" title="Git 常用命令总结">http://haoruanwn.github.io/2025/07/27/文章测试/</a></li><li class="license"><strong>版权声明：</strong>本站所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li></ul></div></footer></article></div><div class="post-nav"><div class="item left"></div><div class="item right"></div></div><div class="wrap" id="comments"></div></div><div id="sidebar"><div class="inner"><div class="panels"><div class="inner"><div class="contents panel pjax" data-title="文章目录"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#git-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E7%AC%94%E8%AE%B0"><span class="toc-number">1.</span> <span class="toc-text"> Git 常用命令笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE"><span class="toc-number">1.1.</span> <span class="toc-text"> 一、基础配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%9F%A5%E7%9C%8B%E4%B8%8E%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF"><span class="toc-number">1.1.1.</span> <span class="toc-text"> 1. 查看与设置用户信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%85%8D%E7%BD%AE-ssh-%E5%AF%86%E9%92%A5"><span class="toc-number">1.1.2.</span> <span class="toc-text"> 2. 配置 SSH 密钥</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E7%AE%A1%E7%90%86"><span class="toc-number">1.2.</span> <span class="toc-text"> 二、本地仓库管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%88%9D%E5%A7%8B%E5%8C%96%E4%BB%93%E5%BA%93-git-init"><span class="toc-number">1.2.1.</span> <span class="toc-text"> 1. 初始化仓库 (git init)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%8F%90%E4%BA%A4%E4%BB%A3%E7%A0%81-git-add-git-commit"><span class="toc-number">1.2.2.</span> <span class="toc-text"> 2. 提交代码 (git add &amp; git commit)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%9F%A5%E7%9C%8B%E6%8F%90%E4%BA%A4%E5%8E%86%E5%8F%B2-git-log"><span class="toc-number">1.2.3.</span> <span class="toc-text"> 3. 查看提交历史 (git log)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80-git-reset"><span class="toc-number">1.2.4.</span> <span class="toc-text"> 4. 版本回退 (git reset)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86"><span class="toc-number">1.3.</span> <span class="toc-text"> 三、分支管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%9F%A5%E7%9C%8B%E4%B8%8E%E7%8A%B6%E6%80%81%E6%A3%80%E6%9F%A5"><span class="toc-number">1.3.1.</span> <span class="toc-text"> 1. 查看与状态检查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%88%9B%E5%BB%BA%E4%B8%8E%E5%88%87%E6%8D%A2%E5%88%86%E6%94%AF"><span class="toc-number">1.3.2.</span> <span class="toc-text"> 2. 创建与切换分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF-git-merge"><span class="toc-number">1.3.3.</span> <span class="toc-text"> 3. 合并分支 (git merge)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%88%A0%E9%99%A4%E5%88%86%E6%94%AF-git-branch-d"><span class="toc-number">1.3.4.</span> <span class="toc-text"> 4. 删除分支 (git branch -d)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%8D%8F%E4%BD%9C"><span class="toc-number">1.4.</span> <span class="toc-text"> 四、远程仓库协作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%85%B3%E8%81%94%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93-git-remote"><span class="toc-number">1.4.1.</span> <span class="toc-text"> 1. 关联远程仓库 (git remote)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%8E%A8%E9%80%81%E8%87%B3%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93-git-push"><span class="toc-number">1.4.2.</span> <span class="toc-text"> 2. 推送至远程仓库 (git push)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%85%8B%E9%9A%86%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93-git-clone"><span class="toc-number">1.4.3.</span> <span class="toc-text"> 3. 克隆远程仓库 (git clone)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94-git-%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7"><span class="toc-number">1.5.</span> <span class="toc-text"> 五、Git 实用技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6-gitignore"><span class="toc-number">1.5.1.</span> <span class="toc-text"> 1. 忽略文件 (.gitignore)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%87%8D%E5%91%BD%E5%90%8D%E5%88%86%E6%94%AF"><span class="toc-number">1.5.2.</span> <span class="toc-text"> 2. 重命名分支</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF%E4%B8%80%E5%88%86%E6%94%AF%E6%9C%AA%E6%8E%A8%E9%80%81%E5%88%B0%E8%BF%9C%E7%A8%8B"><span class="toc-number">1.5.2.1.</span> <span class="toc-text"> 场景一：分支未推送到远程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF%E4%BA%8C%E5%88%86%E6%94%AF%E5%B7%B2%E6%8E%A8%E9%80%81%E5%88%B0%E8%BF%9C%E7%A8%8B"><span class="toc-number">1.5.2.2.</span> <span class="toc-text"> 场景二：分支已推送到远程</span></a></li></ol></li></ol></li></ol></li></ol></div><div class="related panel pjax" data-title="系列文章"></div><div class="overview panel" data-title="站点概览"><div class="author" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><img class="image" loading="lazy" decoding="async" itemprop="image" alt="好软好温暖" src="/assets/avatar.avif"><p class="name" itemprop="name">好软好温暖</p><div class="description" itemprop="description">记录学习与生活的点滴</div></div><nav class="state"><div class="item posts"><a href="/archives/"><span class="count">1</span><span class="name">文章</span></a></div></nav><div class="social"><a target="_blank" rel="noopener" href="https://github.com/yourname" class="item github" title="https://github.com/yourname"><i class="ic i-github"></i></a></div><div class="menu"><li class="item"><a href="/" rel="section"><i class="ic i-home"></i>首页</a></li></div></div></div></div><ul id="quick"><li class="prev pjax"></li><li class="up"><i class="ic i-arrow-up"></i></li><li class="down"><i class="ic i-arrow-down"></i></li><li class="next pjax"></li><li class="percent"></li></ul></div></div><div class="dimmer"></div></div><div id="player"></div></main><footer id="footer"><div class="inner"><div class="widgets"><div class="rpost pjax"><h2>随机文章</h2><ul><li class="item"><div class="breadcrumb"></div><span><a href="/2025/07/27/%E6%96%87%E7%AB%A0%E6%B5%8B%E8%AF%95/">Git 常用命令总结</a></span></li></ul></div><div class="rpost pjax"><h2>最新评论</h2></div></div><div class="status"><div class="copyright">© 2022 -<span itemprop="copyrightYear">2025</span><span class="with-love"><i class="ic i-sakura rotate"></i></span><span class="author" itemprop="copyrightHolder">好软好温暖 @ testName</span></div><div class="count"><span class="post-meta-item-icon"><i class="ic i-chart-area"></i></span><span title="站点总字数">5k 字</span><span class="post-meta-divider"> | </span><span class="post-meta-item-icon"><i class="ic i-coffee"></i></span><span title="站点阅读时长">4 分钟</span></div><div class="powered-by">基于 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> &amp; Theme.<a target="_blank" rel="noopener" href="https://github.com/theme-shoka-x/hexo-theme-shokaX/">ShokaX</a></div></div></div></footer></div><script data-config="" type="text/javascript">var LOCAL = {
+    ispost: true,
+    path: `2025/07/27/文章测试/`,
+    favicon: {
+        show: `（●´3｀●）やれやれだぜ`,
+        hide: `(´Д｀)大変だ！`
+    },
+    search: {
+        placeholder: "文章搜索",
+        empty: "关于 「 ${query} 」，什么也没搜到",
+        stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    nocopy: "false",
+    copyright: `复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。`,
+    copy_tex: false,
+    katex: false,
+    mermaid: false,
+    audio: undefined,
+    nocopy: false,
+    outime: true,
+    template: `<div class="note warning"><p><span class="label warning">文章时效性提示</span><br>这是一篇发布于 {{publish}} 天前，最后一次更新在 {{updated}} 天前的文章，部分信息可能已经发生改变，请注意甄别。</p></div>`,
+    quiz: {
+        choice: `单选题`,
+        multiple: `多选题`,
+        true_false: `判断题`,
+        essay: `问答题`,
+        gap_fill: `填空题`,
+        mistake: `错题备注`
+    }
+};
+</script><script src="/js/siteInit.js?v=0.5.2-hotfix.1" type="module" fetchpriority="high" defer=""></script></body></html>
