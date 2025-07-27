@@ -1,0 +1,53 @@
+{
+  "name": "hexo-site",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "hexo generate",
+    "clean": "hexo clean",
+    "deploy": "hexo deploy",
+    "server": "hexo server"
+  },
+  "packageManager": "pnpm@10.10.0",
+  "hexo": {
+    "version": "7.3.0"
+  },
+  "dependencies": {
+    "@algolia/client-search": "5.34.1",
+    "@common.js/p-limit": "^6.1.0",
+    "@waline/client": "3.6.0",
+    "algoliasearch": "5.34.0",
+    "es-toolkit": "1.39.8",
+    "esbuild": "0.25.8",
+    "hana-img-viewer": "^1.2.3",
+    "hexo": "^7.3.0",
+    "hexo-algoliasearch": "^2.0.1",
+    "hexo-feed": "^1.1.2",
+    "hexo-fs": "^5.0.0",
+    "hexo-generator-archive": "^2.0.0",
+    "hexo-generator-category": "^2.0.0",
+    "hexo-generator-index": "^4.0.0",
+    "hexo-generator-tag": "^2.0.0",
+    "hexo-lightning-minify": "^0.2.2",
+    "hexo-pagination": "^4.0.0",
+    "hexo-renderer-aether": "^0.0.6",
+    "hexo-renderer-ejs": "^2.0.0",
+    "hexo-renderer-pug": "^3.0.0",
+    "hexo-renderer-stylus": "^3.0.1",
+    "hexo-server": "^3.0.0",
+    "hexo-theme-landscape": "^1.1.0",
+    "hexo-theme-shokax": "0.5.2-hotfix.1",
+    "hexo-util": "^3.3.0",
+    "instantsearch.js": "4.79.2",
+    "js-yaml": "^4.1.0",
+    "katex": "^0.16.22",
+    "mouse-firework": "^0.1.1",
+    "nyx-player": "^0.1.1",
+    "quicklink": "2.3.0",
+    "shokax-components-lib": "0.0.2-alpha.4",
+    "theme-shokax-anime": "^0.0.8",
+    "twikoo": "1.6.44",
+    "vue": "3.5.18",
+    "yocto-queue": "^1.2.1"
+  }
+}

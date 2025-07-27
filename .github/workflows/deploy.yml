@@ -1,0 +1,52 @@
+name: Sync Public Folder
+
+on:
+  push:
+    branches:
+      - main 
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout master repository
+      uses: actions/checkout@v3
+      # 检出主仓库的代码
+
+    - name: Set up Git
+      run: |
+        git config --global user.name 'github-actions'
+        git config --global user.email 'actions@github.com'
+      # 配置 Git 用户名和邮箱
+
+    - name: Clone target repository
+      run: |
+        git clone https://github.com/haoruanwn/my_blog_show.git target-repo
+      # 克隆目标仓库到 `target-repo` 目录
+
+    - name: Copy public folder to target repository
+      run: |
+        cp -r public/* target-repo/
+      # 复制 `public` 文件夹内容到目标仓库
+
+    - name: Commit and push changes
+      env:
+        DEPLOY_KEY: ${{ secrets.DEPLOY_TOKEN }}
+      run: |
+        cd target-repo
+        git add .
+        # 尝试提交更改
+        if git commit -m 'Sync public folder from master repository'; then
+          echo "Commit successful"
+        else
+          echo "Commit failed, forcing commit"
+          # 如果提交失败，强制提交
+          git add --all
+          git commit -m 'Force sync public folder from master repository'
+        fi
+        # 设置目标仓库的远程 URL
+        git remote set-url origin https://x-access-token:${DEPLOY_KEY}@github.com/haoruanwn/my_blog_show.git
+        # 尝试推送更改
+        git push origin main || git push origin main --force
+        # 如果推送失败，则强制推送
