@@ -1,8 +1,6 @@
 # Hexo Configuration
 ## Docs: https://hexo.io/docs/configuration.html
 ## Source: https://github.com/hexojs/hexo/
-alternate: testName # 站点大标题
-
 # Site
 title: 好暖好温暖的博客 # 例如：张三的博客
 subtitle: '一个电子信息系的大学生' # 例如：记录学习与生活
@@ -30,12 +28,6 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
-
-darkmode: false
-auto_dark: # 自动亮/暗模式
-  enable: false #是否开启
-  start: 20 #开始时间
-  end: 7 #结束时间
 
 # Writing
 new_post_name: :title.md # File name of new posts
