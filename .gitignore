@@ -2,7 +2,9 @@
 Thumbs.db
 db.json
 *.log
-node_modules/
+node_modules/*
+
+!node_modules/hexo-theme-shokax/
 # public/
 .deploy*/
 _multiconfig.yml
