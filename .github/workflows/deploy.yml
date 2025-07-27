@@ -22,7 +22,7 @@ jobs:
 
     - name: Clone target repository
       run: |
-        git clone https://github.com/haoruanwn/my_blog_show.git target-repo
+        git clone https://github.com/haoruanwn/haoruanwn.github.io.git target-repo
       # 克隆目标仓库到 `target-repo` 目录
 
     - name: Copy public folder to target repository
@@ -46,7 +46,7 @@ jobs:
           git commit -m 'Force sync public folder from master repository'
         fi
         # 设置目标仓库的远程 URL
-        git remote set-url origin https://x-access-token:${DEPLOY_KEY}@github.com/haoruanwn/my_blog_show.git
+        git remote set-url origin https://x-access-token:${DEPLOY_KEY}@github.com/haoruanwn/haoruanwn.github.io.git
         # 尝试推送更改
         git push origin main || git push origin main --force
         # 如果推送失败，则强制推送
