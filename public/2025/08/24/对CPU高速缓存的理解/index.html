@@ -1,0 +1,136 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1"><meta name="renderer" content="webkit"><link rel="icon" type="image/ico" sizes="32x32" href="/assets/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="alternate" href="/rss.xml" title="好暖好温暖的博客" type="application/rss+xml"><link rel="alternate" href="/atom.xml" title="好暖好温暖的博客" type="application/atom+xml"><link rel="alternate" type="application/json" title="好暖好温暖的博客" href="https://haoruanwn.github.io/feed.json"><link rel="preconnect" href="https://s4.zstatic.net"><link rel="preconnect" href="https://at.alicdn.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CFredericka%20the%20Great:400,400italic,700,700italic%7CNoto%20Serif%20JP:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic%7CInconsolata:400,400italic,700,700italic&amp;display=swap&amp;subset=latin,latin-ext" media="none" onload="this.media='all'"><link rel="modulepreload" href="/js/siteInit.js"><link rel="modulepreload" href="/js/nyx-player-7PTV4P6W.js"><link rel="modulepreload" href="/js/copy-tex-GD5CYT32.js"><link rel="modulepreload" href="/js/codeblock-2SEIPCTS.js"><link rel="modulepreload" href="/js/post-TR6RDSKD.js"><link rel="modulepreload" href="/js/chunk-33AWNPDK.js"><link rel="modulepreload" href="/js/chunk-77AOTSR7.js"><link rel="modulepreload" href="/js/index.esm-J3F2JIXO.js"><link rel="modulepreload" href="/js/chunk-HJSTZ4VX.js"><link rel="modulepreload" href="/js/chunk-YKTRPC4H.js"><link rel="stylesheet" href="/css/siteInit.css" media="none" onload="this.media='all'"><link rel="preload" href="/assets/真寻4.png" as="image" fetchpriority="high"><link rel="preload" href="/assets/真寻3.png" as="image" fetchpriority="high"><link rel="preload" href="/assets/真寻4.png" as="image" fetchpriority="high"><link rel="preload" href="/assets/win11-1.png" as="image" fetchpriority="high"><link rel="preload" href="/assets/win11-2.jpeg" as="image" fetchpriority="high"><link rel="preload" href="/assets/win11-1.png" as="image" fetchpriority="high"><meta name="keywords" content="CPU缓存"><meta name="description" content="记录学习与生活的点滴"><link rel="canonical" href="https://haoruanwn.github.io/2025/08/24/%E5%AF%B9CPU%E9%AB%98%E9%80%9F%E7%BC%93%E5%AD%98%E7%9A%84%E7%90%86%E8%A7%A3/"><link rel="stylesheet" href="/css/post.css?v=0.5.2-hotfix.1"><link rel="stylesheet" href="/css/mermaid.css?v=0.5.2-hotfix.1"><!-- 临时处理--><link rel="stylesheet" media="none" onload="this.media='all'" href="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/katex.min.css"><title>对CPU高速缓存的理解</title><meta name="generator" content="Hexo 7.3.0"></head><body itemscope="" itemtype="http://schema.org/WebPage"><div id="loading"><div class="cat"><div class="body"></div><div class="head"><div class="face"></div></div><div class="foot"><div class="tummy-end"></div><div class="bottom"></div><div class="legs left"></div><div class="legs right"></div></div><div class="paw"><div class="hands left"></div><div class="hands right"></div></div></div></div><div id="container"><header id="header" itemscope="" itemtype="http://schema.org/WPHeader"><div class="inner"><div id="brand"><div class="pjax"><h1 itemprop="name headline">对CPU高速缓存的理解</h1><div class="meta"><span class="item" title="创建时间：2025-08-24 23:38:07"><span class="icon"><i class="ic i-calendar"></i></span><span class="text">发表于</span><time itemprop="dateCreated datePublished" datetime="2025-08-24T23:38:07+08:00">2025-08-24</time></span><span class="item" title="本文字数"><span class="icon"><i class="ic i-pen"></i></span><span class="text">本文字数</span><span>3.1k</span><span class="text">字</span></span><span class="item" title="阅读时长"><span class="icon"><i class="ic i-clock"></i></span><span class="text">阅读时长</span><span>3 分钟</span></span></div></div></div><nav id="nav"><div class="inner"><div class="toggle"><div class="lines" aria-label="切换导航栏"><span class="line"></span><span class="line"></span><span class="line"></span></div></div><ul class="menu"><li class="item title"><a href="/" rel="start">MCU/Linux/PCBA/SBC</a></li></ul><ul class="right" id="rightNav"><li class="item theme"><i class="ic i-sun"></i></li><li class="item search"><i class="ic i-search"></i></li></ul></div></nav></div><div class="pjax" id="imgs"><ul><li class="item" style="background-image: url(&quot;/assets/真寻4.png&quot;);"></li><li class="item" style="background-image: url(&quot;/assets/真寻3.png&quot;);"></li><li class="item" style="background-image: url(&quot;/assets/真寻4.png&quot;);"></li><li class="item" style="background-image: url(&quot;/assets/win11-1.png&quot;);"></li><li class="item" style="background-image: url(&quot;/assets/win11-2.jpeg&quot;);"></li><li class="item" style="background-image: url(&quot;/assets/win11-1.png&quot;);"></li></ul></div></header><div id="waves"><svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path></defs><g class="parallax"><use xlink:href="#gentle-wave" x="48" y="0"></use><use xlink:href="#gentle-wave" x="48" y="3"></use><use xlink:href="#gentle-wave" x="48" y="5"></use><use xlink:href="#gentle-wave" x="48" y="7"></use></g></svg></div><main><div class="inner"><div class="pjax" id="main"><div class="article wrap"><div class="breadcrumb" itemlistelement="" itemscope="" itemtype="https://schema.org/BreadcrumbList"><i class="ic i-home"></i><span><a href="/">首页</a></span><i class="ic i-angle-right"></i><span class="current" itemprop="itemListElement" itemscope="itemscope" itemtype="https://schema.org/ListItem"><a href="/categories/Linux%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B/" itemprop="item" rel="index" title="分类于Linux系统编程"><span itemprop="name">Linux系统编程<meta itemprop="position" content="0"></span></a></span></div><article class="post block" itemscope="itemscope" itemtype="http://schema.org/Article" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://haoruanwn.github.io/2025/08/24/%E5%AF%B9CPU%E9%AB%98%E9%80%9F%E7%BC%93%E5%AD%98%E7%9A%84%E7%90%86%E8%A7%A3/"><span hidden="hidden" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><meta itemprop="image" content="/assets/avatar.jpg"><meta itemprop="name" content="好软好温暖"><meta itemprop="description" content="一个电子信息系的大学生, 记录学习与生活的点滴"></span><span hidden="hidden" itemprop="publisher" itemscope="itemscope" itemtype="http://schema.org/Organization"><meta itemprop="name" content="好暖好温暖的博客"></span><div class="body md" itemprop="articleBody"><h3 id="一-缓存失效的背后三大核心机制"><a class="anchor" href="#一-缓存失效的背后三大核心机制">#</a> <strong>一、缓存失效的背后：三大核心机制</strong></h3>
+<p><strong>为何CPU高速缓存中的数据会“失效”，其背后的主要机制有哪些？</strong></p>
+<blockquote>
+<p>CPU高速缓存是提升性能的关键，但它并非一个静态的存储区域。缓存中的数据会因为容量限制、多核间的数据同步以及与外部设备交互等多种原因被替换或宣告无效，理解这些机制是优化性能的基础。</p>
+</blockquote>
+<p>CPU缓存中的数据“失效”，通常指数据被替换或被标记为无效，使其无法再被CPU使用。这一过程主要由以下三种机制驱动：</p>
+<ol>
+<li><strong>容量竞争与替换</strong>：CPU缓存的容量非常有限。当缓存已满时，若要载入新的数据，就必须按照某种替换算法（如 <strong>LRU - 最近最少使用算法</strong>）丢弃一些现有的数据。这是最常见和基本的“失效”形式，由缓存自身的物理限制导致。</li>
+<li><strong>多核一致性协议</strong>：在多核处理器中，同一份内存数据可能被多个核心同时加载到各自的缓存中。如果其中一个核心修改了这份数据，其他核心缓存中的副本就变成了过时的“脏数据”。为了保证数据一致性，硬件层面的缓存一致性协议（如 <strong>MESI协议</strong>）会强制将其他核心的这份数据副本标记为“无效”，迫使它们在需要时重新从内存或已更新的核心获取最新版本。</li>
+<li><strong>外部I/O操作</strong>：当外部设备（如网卡、硬盘控制器）通过 <strong>DMA (直接内存访问)</strong> 技术绕过CPU直接向主内存写入数据时，CPU缓存中可能还保留着这块内存区域的旧副本。由于CPU对此操作无感知，其缓存数据已然过期。在这种情况下，必须由软件（通常是驱动程序）显式地执行缓存无效化指令，才能避免CPU读到脏数据。</li>
+</ol>
+<hr>
+<h3 id="二-打破亲和性任务迁移的驱动力"><a class="anchor" href="#二-打破亲和性任务迁移的驱动力">#</a> <strong>二、打破亲和性：任务迁移的驱动力</strong></h3>
+<p><strong>在调度器倾向于维持“CPU亲和性”的情况下，究竟是哪些更高优先级的考量会促使一个任务被主动迁移到其他CPU核心上执行？</strong></p>
+<blockquote>
+<p>为了最大化利用缓存，操作系统调度器会尽量让一个任务保持在同一个CPU核心上运行。然而，为了保证整个系统的响应速度和资源利用率，调度器在某些特定情境下，不得不打破这种“亲和性”，主动进行跨核心的任务迁移。</p>
+</blockquote>
+<p>尽管维持CPU亲和性可以带来显著的性能优势，但操作系统调度器为了更宏观的目标，会在以下几种主要情境下主动进行任务迁移：</p>
+<ol>
+<li><strong>负载均衡 (Load Balancing)</strong>：这是任务迁移最主要的原因。如果系统中的任务都集中在少数几个核心上，导致它们不堪重负，而其他核心却处于空闲，会造成巨大的资源浪费。调度器的负载均衡模块会周期性地检查各核心的负载，并在发现严重失衡时，将任务从繁忙的核心迁移到空闲的核心，以实现所有计算资源的充分利用。</li>
+<li><strong>提升任务响应速度</strong>：当一个因I/O等待而休眠的任务被唤醒时，它原本所在的“亲和”核心可能正在处理一个高优先级的长耗时任务。为了让被唤醒的任务能尽快得到执行，而不是在原核心上排队等待，调度器可能会选择将它迁移到一个当前负载较低或空闲的核心上。</li>
+<li><strong>功耗与性能策略</strong>：现代CPU的功耗管理非常复杂。例如，为了节省能源，某些核心可能处于深度睡眠状态。此时，将一个新任务迁移到已经处于活跃状态的核心上，可能比花费时间和功耗去唤醒一个睡眠核心更具效率。</li>
+</ol>
+<hr>
+<h3 id="三-缓存数据的寿命由竞争决定"><a class="anchor" href="#三-缓存数据的寿命由竞争决定">#</a> <strong>三、缓存数据的“寿命”：由竞争决定</strong></h3>
+<p><strong>缓存中某个任务的“热数据”能够保存多久，是由时间决定的，还是由CPU核心的竞争和访问模式决定的？</strong></p>
+<blockquote>
+<p>当一个任务被换下CPU时，它留在缓存中的“热数据”并不会立刻消失，但其“寿命”却难以预测。这份数据的存留时间并非由一个固定的计时器来管理，而是取决于后续在该CPU核心上运行的其他任务对其造成的影响。</p>
+</blockquote>
+<p>缓存中数据的“寿命”<strong>并非由时间决定，而是完全由该CPU核心上发生的缓存空间竞争激烈程度所决定</strong>。不存在一个“数据过期计时器”。</p>
+<p>数据的存留情况取决于后续在该核心上运行的其他任务的内存访问模式。我们可以设想两种极端情况：</p>
+<ul>
+<li><strong>低竞争环境</strong>：如果一个核心在接下来的很长一段时间内，运行的任务所访问的数据集很小，或者与之前任务的数据在缓存中占用的位置不冲突，那么之前任务的“热数据”就有可能在缓存中存留很长时间。</li>
+<li><strong>高竞争环境</strong>：如果后续运行的任务是一个需要大量内存的 <strong>“缓存破坏者” (Cache Buster)</strong>，它会大量加载自己的数据，迅速地将前一个任务留下的数据从缓存中替换出去。在这种情况下，前一个任务的数据可能在短短几微秒或几毫秒内就完全“蒸发”了。</li>
+</ul>
+<p>因此，缓存数据的存留期是一个动态变化的过程，直接反映了CPU核心上任务切换和内存访问的实时状况。</p>
+<hr>
+<h3 id="四-缓存命中高速公路的入口"><a class="anchor" href="#四-缓存命中高速公路的入口">#</a> <strong>四、“缓存命中”：高速公路的入口</strong></h3>
+<p><strong>“缓存命中”这一概念的准确定义是什么？它与任务上下文切换后期望的“热数据”重用之间是什么关系？</strong></p>
+<blockquote>
+<p>“缓存命中”是衡量缓存效率的核心指标。它描述了一个基础而关键的事件：CPU需要的数据恰好在高速缓存中被找到。理解其准确定义，有助于我们弄清为何CPU亲和性等调度策略对于提升多任务系统的性能至关重要。</p>
+</blockquote>
+<p><strong>“缓存命中” (Cache Hit)</strong> 的准确定义是：CPU在尝试从某个内存地址读取数据或指令时，在高速缓存中直接找到了所需的内容，无需再访问更低速的主内存。这是一次成功的、高效的内存访问。反之，如果在缓存中没有找到，必须去主内存读取，则称为 <strong>“缓存未命中” (Cache Miss)</strong>。</p>
+<p>它与任务上下文切换的关系体现在：</p>
+<p>上下文切换后，任务能否快速恢复高性能，关键就在于其重新执行时缓存命中的概率有多高。</p>
+<ul>
+<li><strong>CPU亲和性策略</strong>的目的，就是为了让一个任务在被切换出去又切换回来后，能够大概率地在 <strong>同一个CPU核心</strong> 上运行。</li>
+<li>这样做的<strong>最终目标</strong>，是为了让这个任务能够重用上次运行时留在该核心缓存中的 <strong>“热数据”</strong>。</li>
+<li>当任务成功重用这些数据时，就表现为<strong>大量的缓存命中</strong>，从而避免了因缓存未命中而去访问慢速主内存所带来的巨大性能损失。</li>
+</ul>
+<p>简而言之，CPU亲和性是一种<strong>策略</strong>，而缓存命中是该策略成功时所获得的<strong>收益</strong>。</p>
+<hr>
+<h3 id="五-单片机中的缓存权责分明"><a class="anchor" href="#五-单片机中的缓存权责分明">#</a> <strong>五、单片机中的缓存：权责分明</strong></h3>
+<p><strong>对于带有缓存的单片机（如Cortex-M7），其缓存工作机制与通用处理器相比，在内存模型和开发者责任方面最核心的区别是什么？</strong></p>
+<blockquote>
+<p>缓存并非大型CPU的专利，诸如STM32H7系列的高性能单片机也配备了缓存。然而，由于其硬件架构和应用场景的差异，这类嵌入式系统中的缓存工作原理、尤其是在与RTOS和DMA交互时，与我们熟悉的Linux系统存在着根本性的不同。</p>
+</blockquote>
+<p>其核心区别源于有无 <strong>MMU (内存管理单元)</strong>，这直接导致了内存模型和开发者责任的巨大差异。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">特性</th>
+<th style="text-align:left">通用处理器 (如Linux系统)</th>
+<th style="text-align:left">高性能单片机 (如Cortex-M7)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>核心硬件</strong></td>
+<td style="text-align:left">拥有 <strong>MMU (内存管理单元)</strong></td>
+<td style="text-align:left">通常<strong>无MMU</strong></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>内存模型</strong></td>
+<td style="text-align:left"><strong>虚拟内存</strong>，进程拥有独立地址空间</td>
+<td style="text-align:left"><strong>物理内存</strong>，所有任务共享同一地址空间</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>缓存一致性</strong></td>
+<td style="text-align:left">由<strong>操作系统和驱动</strong>自动处理</td>
+<td style="text-align:left">责任落在<strong>嵌入式开发者</strong>身上</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>开发者操作</strong></td>
+<td style="text-align:left">无需关心底层缓存细节</td>
+<td style="text-align:left">必须<strong>手动调用</strong> <code>SCB_CleanDCache</code> 等函数进行缓存维护</td>
+</tr>
+</tbody>
+</table>
+<div class="tags"><a href="/tags/CPU%E7%BC%93%E5%AD%98/" rel="tag"><i class="ic i-tag"></i>CPU缓存</a></div></div><footer><div class="meta"><span class="item"><span class="icon"><i class="ic i-calendar-check"></i></span><span class="text">更新于 </span><time title="修改时间：2025-08-24 23:38:34" itemprop="dateModified" datetime="2025-08-24T23:38:34+08:00">2025-08-24</time></span></div><div class="reward"><button><i class="ic i-heartbeat"></i>赞赏</button><p>请我喝[茶]~(￣▽￣)~*</p><div id="qr"><div><img loading="lazy" src="/assets/wechatpay.avif" alt="好软好温暖 微信支付"><p>微信支付</p></div><div><img loading="lazy" src="/assets/alipay.avif" alt="好软好温暖 支付宝"><p>支付宝</p></div></div></div><div id="copyright"><ul><li class="author"><strong>本文作者：</strong>好软好温暖<i class="ic i-at"><em>@</em></i>好暖好温暖的博客</li><li class="link"><strong>本文链接：</strong><a href="https://haoruanwn.github.io/2025/08/24/%E5%AF%B9CPU%E9%AB%98%E9%80%9F%E7%BC%93%E5%AD%98%E7%9A%84%E7%90%86%E8%A7%A3/" title="对CPU高速缓存的理解">https://haoruanwn.github.io/2025/08/24/对CPU高速缓存的理解/</a></li><li class="license"><strong>版权声明：</strong>本站所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li></ul></div></footer></article></div><div class="post-nav"><div class="item left"><a href="/2025/08/24/%E5%AF%B9Linux%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E7%9A%84%E7%90%86%E8%A7%A3/" rel="prev" itemprop="url" data-background-image="/assets/真寻1.jpg" title="对Linux任务调度的理解"><span class="type">上一篇</span><span class="category"><i class="ic i-flag"></i>Linux系统编程</span><h3>对Linux任务调度的理解</h3></a></div><div class="item right"></div></div><div class="wrap" id="comments"></div></div><div id="sidebar"><div class="inner"><div class="panels"><div class="inner"><div class="contents panel pjax" data-title="文章目录"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80-%E7%BC%93%E5%AD%98%E5%A4%B1%E6%95%88%E7%9A%84%E8%83%8C%E5%90%8E%E4%B8%89%E5%A4%A7%E6%A0%B8%E5%BF%83%E6%9C%BA%E5%88%B6"><span class="toc-number">1.</span> <span class="toc-text"> 一、缓存失效的背后：三大核心机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-%E6%89%93%E7%A0%B4%E4%BA%B2%E5%92%8C%E6%80%A7%E4%BB%BB%E5%8A%A1%E8%BF%81%E7%A7%BB%E7%9A%84%E9%A9%B1%E5%8A%A8%E5%8A%9B"><span class="toc-number">2.</span> <span class="toc-text"> 二、打破亲和性：任务迁移的驱动力</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-%E7%BC%93%E5%AD%98%E6%95%B0%E6%8D%AE%E7%9A%84%E5%AF%BF%E5%91%BD%E7%94%B1%E7%AB%9E%E4%BA%89%E5%86%B3%E5%AE%9A"><span class="toc-number">3.</span> <span class="toc-text"> 三、缓存数据的“寿命”：由竞争决定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B-%E7%BC%93%E5%AD%98%E5%91%BD%E4%B8%AD%E9%AB%98%E9%80%9F%E5%85%AC%E8%B7%AF%E7%9A%84%E5%85%A5%E5%8F%A3"><span class="toc-number">4.</span> <span class="toc-text"> 四、“缓存命中”：高速公路的入口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94-%E5%8D%95%E7%89%87%E6%9C%BA%E4%B8%AD%E7%9A%84%E7%BC%93%E5%AD%98%E6%9D%83%E8%B4%A3%E5%88%86%E6%98%8E"><span class="toc-number">5.</span> <span class="toc-text"> 五、单片机中的缓存：权责分明</span></a></li></ol></div><div class="related panel pjax" data-title="系列文章"><ul><li><a href="/2025/08/24/%E5%AF%B9Linux%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E7%9A%84%E7%90%86%E8%A7%A3/" rel="bookmark" title="对Linux任务调度的理解">对Linux任务调度的理解</a></li><li class="active"><a href="/2025/08/24/%E5%AF%B9CPU%E9%AB%98%E9%80%9F%E7%BC%93%E5%AD%98%E7%9A%84%E7%90%86%E8%A7%A3/" rel="bookmark" title="对CPU高速缓存的理解">对CPU高速缓存的理解</a></li></ul></div><div class="overview panel" data-title="站点概览"><div class="author" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><img class="image" loading="lazy" decoding="async" itemprop="image" alt="好软好温暖" src="/assets/avatar.avif"><p class="name" itemprop="name">好软好温暖</p><div class="description" itemprop="description">记录学习与生活的点滴</div></div><nav class="state"><div class="item posts"><a href="/archives/"><span class="count">27</span><span class="name">文章</span></a></div><div class="item categories"><a href="/categories/"><span class="count">8</span><span class="name">分类</span></a></div><div class="item tags"><a href="/tags/"><span class="count">15</span><span class="name">标签</span></a></div></nav><div class="social"><a target="_blank" rel="noopener" href="https://github.com/haoruanwn" class="item github" title="https://github.com/haoruanwn"><i class="ic i-github"></i></a><a target="_blank" rel="noopener" href="https://www.zhihu.com/people/hao-hao-47-61-37" class="item zhihu" title="https://www.zhihu.com/people/hao-hao-47-61-37"><i class="ic i-zhihu"></i></a></div><div class="menu"><li class="item"><a href="/" rel="section"><i class="ic i-"></i>Home</a></li><li class="item dropdown"><a href="#" onclick="return false;"><i class="ic i-user"></i>关于</a><ul class="submenu"><li class="item"><a href="/about/" rel="section"><i class="ic i-user"></i>关于本站</a></li><li class="item"><a href="/admiration/" rel="section"><i class="ic i-coffee"></i>赞赏博主</a></li></ul></li><li class="item dropdown"><a href="#" onclick="return false;"><i class="ic i-feather"></i>文章</a><ul class="submenu"><li class="item"><a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a></li><li class="item"><a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a></li><li class="item"><a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a></li></ul></li><li class="item"><a href="/friends/" rel="section"><i class="ic i-heart"></i>友链</a></li></div></div></div></div><ul id="quick"><li class="prev pjax"></li><li class="up"><i class="ic i-arrow-up"></i></li><li class="down"><i class="ic i-arrow-down"></i></li><li class="next pjax"><a href="/2025/08/24/%E5%AF%B9Linux%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E7%9A%84%E7%90%86%E8%A7%A3/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a></li><li class="percent"></li></ul></div></div><div class="dimmer"></div></div><div id="player"></div></main><footer id="footer"><div class="inner"><div class="widgets"><div class="rpost pjax"><h2>随机文章</h2><ul><li class="item"><div class="breadcrumb"><a href="/categories/OpenCV/" title="分类于OpenCV">OpenCV</a></div><span><a href="/2025/07/28/OpenCV/opencv%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E6%A8%A1%E5%9D%97/">opencv图像处理模块</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/OpenCV/" title="分类于OpenCV">OpenCV</a></div><span><a href="/2025/07/28/OpenCV/opencv%E6%96%87%E4%BB%B6%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/">opencv文件输入输出</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/Programing/" title="分类于Programing">Programing</a></div><span><a href="/2025/08/20/Programing/Rust/Rust%E4%B8%AD%E7%9A%84Struct/">Rust中的Struct</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/OpenCV/" title="分类于OpenCV">OpenCV</a></div><span><a href="/2025/07/28/OpenCV/opencv%E4%BA%8B%E4%BB%B6/">opencv事件</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/Programing/" title="分类于Programing">Programing</a></div><span><a href="/2025/08/20/Programing/Rust/Rust%E4%B8%AD%E7%9A%84Slice/">Rust中的Slice</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/Programing/" title="分类于Programing">Programing</a></div><span><a href="/2025/07/28/Programing/Rust/Rust%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">rust基本语法</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/SBC/" title="分类于单板计算机/Linux开发板">单板计算机/Linux开发板</a></div><span><a href="/2025/08/24/%E8%B0%83%E8%AF%95USB%E6%91%84%E5%83%8F%E5%A4%B4/">调试USB摄像头</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/SBC/" title="分类于单板计算机/Linux开发板">单板计算机/Linux开发板</a></div><span><a href="/2025/07/28/SBC/%E5%BC%80%E5%8F%91%E6%9D%BF%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/">开发板网络配置</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/ENV-CONFIG/" title="分类于环境配置&amp;工具使用">环境配置&amp;工具使用</a></div><span><a href="/2025/07/27/ENV_CONFIG/python%E8%84%9A%E6%9C%AC%E4%BB%8E%E5%98%89%E7%AB%8B%E5%88%9B%E5%AF%BC%E5%85%A5%E5%85%83%E5%99%A8%E4%BB%B6%E5%88%B0kicad/">python脚本从嘉立创导入元器件到kicad</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/MCU/" title="分类于MCU/单片机/微控制器">MCU/单片机/微控制器</a></div><span><a href="/2025/08/03/%E4%BD%BF%E7%94%A8pyocd%E8%B0%83%E7%94%A8FLM%E6%A0%BC%E5%BC%8F%E7%9A%84%E5%A4%96%E9%83%A8%E4%B8%8B%E8%BD%BD%E7%AE%97%E6%B3%95/">使用pyocd调用FLM格式的外部下载算法</a></span></li></ul></div><div class="rpost pjax"><h2>最新评论</h2></div></div><div class="status"><div class="copyright">© 2022 -<span itemprop="copyrightYear">2025</span><span class="with-love"><i class="ic i-sakura rotate"></i></span><span class="author" itemprop="copyrightHolder">好软好温暖 @ MCU/Linux/PCBA/SBC</span></div><div class="count"><span class="post-meta-item-icon"><i class="ic i-chart-area"></i></span><span title="站点总字数">113k 字</span><span class="post-meta-divider"> | </span><span class="post-meta-item-icon"><i class="ic i-coffee"></i></span><span title="站点阅读时长">1:43</span></div><div class="powered-by">基于 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> &amp; Theme.<a target="_blank" rel="noopener" href="https://github.com/theme-shoka-x/hexo-theme-shokaX/">ShokaX</a></div></div></div></footer></div><script data-config="" type="text/javascript">var LOCAL = {
+    ispost: true,
+    path: `2025/08/24/对CPU高速缓存的理解/`,
+    favicon: {
+        show: `（●´3｀●）やれやれだぜ`,
+        hide: `(´Д｀)大変だ！`
+    },
+    search: {
+        placeholder: "文章搜索",
+        empty: "关于 「 ${query} 」，什么也没搜到",
+        stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    nocopy: "false",
+    copyright: `复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。`,
+    copy_tex: false,
+    katex: false,
+    mermaid: false,
+    audio: undefined,
+    nocopy: false,
+    outime: true,
+    template: `<div class="note warning"><p><span class="label warning">文章时效性提示</span><br>这是一篇发布于 {{publish}} 天前，最后一次更新在 {{updated}} 天前的文章，部分信息可能已经发生改变，请注意甄别。</p></div>`,
+    quiz: {
+        choice: `单选题`,
+        multiple: `多选题`,
+        true_false: `判断题`,
+        essay: `问答题`,
+        gap_fill: `填空题`,
+        mistake: `错题备注`
+    }
+};
+</script><script>var _hmt = _hmt || [];
+(function () {
+    const hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?true"
+    hm.async = true;
+    const s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+ })();</script><script>(function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=true;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "true");</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=true"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag() {
+    dataLayer.push(arguments);
+}
+gtag('js', new Date());
+gtag('config', 'true');</script><script src="/js/siteInit.js?v=0.5.2-hotfix.1" type="module" fetchpriority="high" defer=""></script></body></html>
