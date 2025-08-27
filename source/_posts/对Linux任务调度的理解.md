@@ -2,7 +2,7 @@
 title: 对Linux任务调度的理解
 date: 2025-08-24 23:13:29
 tags: 任务调度
-categories: Linux系统编程
+categories: Linux
 ---
 ### **一、统一的调度单元：任务（Task）**
 

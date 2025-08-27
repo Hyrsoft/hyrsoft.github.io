@@ -2,7 +2,7 @@
 title: 对CPU高速缓存的理解
 date: 2025-08-24 23:38:07
 tags: CPU缓存
-categories: Linux系统编程
+categories: Linux
 ---
 ### **一、缓存失效的背后：三大核心机制**
 

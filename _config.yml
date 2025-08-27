@@ -73,6 +73,7 @@ category_map:
   单板计算机/Linux开发板: SBC
   Rust: Rust
   C++: C++
+  Linux: Linux
 tag_map:
 
 # Metadata elements

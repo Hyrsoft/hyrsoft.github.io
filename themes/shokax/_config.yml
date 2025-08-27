@@ -38,8 +38,8 @@ homeConfig:
       cover: MCU/cover.jpg
     - slug: ENV_CONFIG
       cover: ENV_CONFIG/cover.jpg
-    - slug: OpenCV
-      cover: OpenCV/cover.jpg
+    - slug: Linux
+      cover: Linux/cover.jpg
     - slug: Programing
       cover: Programing/cover.jpg
     - slug: SBC
