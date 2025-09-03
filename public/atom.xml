@@ -8,11 +8,121 @@
     <author>
       <name>好软好温暖</name>
     </author>
-    <updated>2025-08-28T15:46:25.000Z</updated>
+    <updated>2025-09-03T14:53:54.000Z</updated>
     <entry>
-        <id>https://haoruanwn.github.io/2025/08/28/Rust%E7%9A%84%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</id>
+        <id>https://haoruanwn.github.io/2025/09/03/Programming/C++/Conan-CMake%E5%9F%BA%E6%9C%AC%E7%BC%96%E8%AF%91%E6%B5%81%E7%A8%8B/</id>
+        <title>Conan+CMake基本编译流程</title>
+        <link rel="alternate" href="https://haoruanwn.github.io/2025/09/03/Programming/C++/Conan-CMake%E5%9F%BA%E6%9C%AC%E7%BC%96%E8%AF%91%E6%B5%81%E7%A8%8B/"/>
+        <content type="html">&lt;h1 id=&#34;conancmake基本编译流程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#conancmake基本编译流程&#34;&gt;#&lt;/a&gt; Conan+CMake基本编译流程&lt;/h1&gt;
+&lt;h2 id=&#34;本地编译&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#本地编译&#34;&gt;#&lt;/a&gt; 本地编译&lt;/h2&gt;
+&lt;h3 id=&#34;1-conan-安装依赖&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1-conan-安装依赖&#34;&gt;#&lt;/a&gt; 1. Conan 安装依赖&lt;/h3&gt;
+&lt;p&gt;首先，使用 Conan 安装项目所需的第三方包。Conan 会根据构建类型（Debug/Release）将生成的文件放置在不同的目录中。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;默认情况下，Conan 会创建 &lt;code&gt;build/Release/generators&lt;/code&gt; 目录来存放生成文件。&lt;/p&gt;
+&lt;pre class=&#34;shiki shiki-themes vitesse-light vitesse-dark&#34; style=&#34;background-color:#ffffff;--shiki-dark-bg:#121212;color:#393a34;--shiki-dark:#dbd7caee&#34; tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#59873A;--shiki-dark:#80A665&#34;&gt;conan&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; install&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; .&lt;/span&gt;&lt;span style=&#34;color:#A65E2B;--shiki-dark:#C99076&#34;&gt; --build=missing&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;可以明确指定构建类型，例如 &lt;code&gt;Debug&lt;/code&gt;。&lt;/p&gt;
+&lt;pre class=&#34;shiki shiki-themes vitesse-light vitesse-dark&#34; style=&#34;background-color:#ffffff;--shiki-dark-bg:#121212;color:#393a34;--shiki-dark:#dbd7caee&#34; tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#59873A;--shiki-dark:#80A665&#34;&gt;conan&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; install&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; .&lt;/span&gt;&lt;span style=&#34;color:#A65E2B;--shiki-dark:#C99076&#34;&gt; --build=missing&lt;/span&gt;&lt;span style=&#34;color:#A65E2B;--shiki-dark:#C99076&#34;&gt; -s&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; build_type=Debug&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;--output-folder&lt;/code&gt; 参数可以指定输出目录，但通常不是必需的，因为 Conan 会根据配置自动管理路径。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2-cmake-配置与编译&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#2-cmake-配置与编译&#34;&gt;#&lt;/a&gt; 2. CMake 配置与编译&lt;/h3&gt;
+&lt;p&gt;Conan 在安装依赖后，会自动生成一个 CMake 预设文件 (&lt;code&gt;CMakeUserPresets.json&lt;/code&gt;)，其中包含了配置和编译所需的全部信息。因此，推荐直接使用预设来简化操作。&lt;/p&gt;
+&lt;h4 id=&#34;使用-cmake-预设推荐&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用-cmake-预设推荐&#34;&gt;#&lt;/a&gt; 使用 CMake 预设（推荐）&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;配置 CMake&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;使用 &lt;code&gt;conan-debug&lt;/code&gt; 或 &lt;code&gt;conan-release&lt;/code&gt; 预设来配置项目。&lt;/p&gt;
+&lt;pre class=&#34;shiki shiki-themes vitesse-light vitesse-dark&#34; style=&#34;background-color:#ffffff;--shiki-dark-bg:#121212;color:#393a34;--shiki-dark:#dbd7caee&#34; tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#A0ADA0;--shiki-dark:#758575DD&#34;&gt;# 配置 Debug 版本&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#59873A;--shiki-dark:#80A665&#34;&gt;cmake&lt;/span&gt;&lt;span style=&#34;color:#A65E2B;--shiki-dark:#C99076&#34;&gt; --preset&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; conan-debug&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#A0ADA0;--shiki-dark:#758575DD&#34;&gt;# 配置 Release 版本&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#59873A;--shiki-dark:#80A665&#34;&gt;cmake&lt;/span&gt;&lt;span style=&#34;color:#A65E2B;--shiki-dark:#C99076&#34;&gt; --preset&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; conan-release&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;编译&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;同样使用预设来执行编译。&lt;/p&gt;
+&lt;pre class=&#34;shiki shiki-themes vitesse-light vitesse-dark&#34; style=&#34;background-color:#ffffff;--shiki-dark-bg:#121212;color:#393a34;--shiki-dark:#dbd7caee&#34; tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#A0ADA0;--shiki-dark:#758575DD&#34;&gt;# 编译 Debug 版本&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#59873A;--shiki-dark:#80A665&#34;&gt;cmake&lt;/span&gt;&lt;span style=&#34;color:#A65E2B;--shiki-dark:#C99076&#34;&gt; --build&lt;/span&gt;&lt;span style=&#34;color:#A65E2B;--shiki-dark:#C99076&#34;&gt; --preset&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; conan-debug&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#A0ADA0;--shiki-dark:#758575DD&#34;&gt;# 编译 Release 版本&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#59873A;--shiki-dark:#80A665&#34;&gt;cmake&lt;/span&gt;&lt;span style=&#34;color:#A65E2B;--shiki-dark:#C99076&#34;&gt; --build&lt;/span&gt;&lt;span style=&#34;color:#A65E2B;--shiki-dark:#C99076&#34;&gt; --preset&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; conan-release&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;手动配置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#手动配置&#34;&gt;#&lt;/a&gt; 手动配置&lt;/h4&gt;
+&lt;p&gt;如果不使用预设，则需要手动指定工具链文件和构建类型。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;配置 CMake&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&#34;shiki shiki-themes vitesse-light vitesse-dark&#34; style=&#34;background-color:#ffffff;--shiki-dark-bg:#121212;color:#393a34;--shiki-dark:#dbd7caee&#34; tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#A0ADA0;--shiki-dark:#758575DD&#34;&gt;# 配置 Release 版本&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#59873A;--shiki-dark:#80A665&#34;&gt;cmake&lt;/span&gt;&lt;span style=&#34;color:#A65E2B;--shiki-dark:#C99076&#34;&gt; -S&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; .&lt;/span&gt;&lt;span style=&#34;color:#A65E2B;--shiki-dark:#C99076&#34;&gt; -B&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; build/Release&lt;/span&gt;&lt;span style=&#34;color:#A65E2B;--shiki-dark:#C99076&#34;&gt; -G&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; Ninja&lt;/span&gt;&lt;span style=&#34;color:#A65E2B;--shiki-dark:#C99076&#34;&gt; \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#A65E2B;--shiki-dark:#C99076&#34;&gt;      -DCMAKE_TOOLCHAIN_FILE=build/Release/generators/conan_toolchain.cmake&lt;/span&gt;&lt;span style=&#34;color:#A65E2B;--shiki-dark:#C99076&#34;&gt; \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#A65E2B;--shiki-dark:#C99076&#34;&gt;      -DCMAKE_BUILD_TYPE=Release&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#393A34;--shiki-dark:#DBD7CAEE&#34;&gt;      &lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#A0ADA0;--shiki-dark:#758575DD&#34;&gt;# 配置 Debug 版本&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#59873A;--shiki-dark:#80A665&#34;&gt;cmake&lt;/span&gt;&lt;span style=&#34;color:#A65E2B;--shiki-dark:#C99076&#34;&gt; -S&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; .&lt;/span&gt;&lt;span style=&#34;color:#A65E2B;--shiki-dark:#C99076&#34;&gt; -B&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; build/Debug&lt;/span&gt;&lt;span style=&#34;color:#A65E2B;--shiki-dark:#C99076&#34;&gt; -G&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; Ninja&lt;/span&gt;&lt;span style=&#34;color:#A65E2B;--shiki-dark:#C99076&#34;&gt; \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#A65E2B;--shiki-dark:#C99076&#34;&gt;      -DCMAKE_TOOLCHAIN_FILE=build/Debug/generators/conan_toolchain.cmake&lt;/span&gt;&lt;span style=&#34;color:#A65E2B;--shiki-dark:#C99076&#34;&gt; \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#A65E2B;--shiki-dark:#C99076&#34;&gt;      -DCMAKE_BUILD_TYPE=Debug&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;编译&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&#34;shiki shiki-themes vitesse-light vitesse-dark&#34; style=&#34;background-color:#ffffff;--shiki-dark-bg:#121212;color:#393a34;--shiki-dark:#dbd7caee&#34; tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#A0ADA0;--shiki-dark:#758575DD&#34;&gt;# 编译 Release 版本&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#59873A;--shiki-dark:#80A665&#34;&gt;cmake&lt;/span&gt;&lt;span style=&#34;color:#A65E2B;--shiki-dark:#C99076&#34;&gt; --build&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; build/Release&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#A0ADA0;--shiki-dark:#758575DD&#34;&gt;# 编译 Debug 版本&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#59873A;--shiki-dark:#80A665&#34;&gt;cmake&lt;/span&gt;&lt;span style=&#34;color:#A65E2B;--shiki-dark:#C99076&#34;&gt; --build&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; build/Debug&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;交叉编译&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#交叉编译&#34;&gt;#&lt;/a&gt; 交叉编译&lt;/h2&gt;
+&lt;h3 id=&#34;1-创建-profile-文件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1-创建-profile-文件&#34;&gt;#&lt;/a&gt; 1. 创建 Profile 文件&lt;/h3&gt;
+&lt;p&gt;首先，需要为目标平台创建一个 Conan Profile 文件。例如，为 aarch64 架构创建一个 &lt;code&gt;profiles/aarch64_profile&lt;/code&gt; 文件。&lt;/p&gt;
+&lt;pre class=&#34;shiki shiki-themes vitesse-light vitesse-dark&#34; style=&#34;background-color:#ffffff;--shiki-dark-bg:#121212;color:#393a34;--shiki-dark:#dbd7caee&#34; tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-toml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#2993a3;--shiki-dark:#5eaab5&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#59873A;--shiki-dark:#80A665&#34;&gt;settings&lt;/span&gt;&lt;span style=&#34;color:#2993a3;--shiki-dark:#5eaab5&#34;&gt;]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#B07D48;--shiki-dark:#BD976A&#34;&gt;os&lt;/span&gt;&lt;span style=&#34;color:#999999;--shiki-dark:#666666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#393A34;--shiki-dark:#DBD7CAEE&#34;&gt;L&lt;/span&gt;&lt;span style=&#34;color:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic&#34;&gt;inux&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#B07D48;--shiki-dark:#BD976A&#34;&gt;arch&lt;/span&gt;&lt;span style=&#34;color:#999999;--shiki-dark:#666666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#393A34;--shiki-dark:#DBD7CAEE&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic&#34;&gt;rmv8&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#B07D48;--shiki-dark:#BD976A&#34;&gt;compiler&lt;/span&gt;&lt;span style=&#34;color:#999999;--shiki-dark:#666666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#393A34;--shiki-dark:#DBD7CAEE&#34;&gt;g&lt;/span&gt;&lt;span style=&#34;color:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic&#34;&gt;cc&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#B07D48;--shiki-dark:#BD976A&#34;&gt;compiler&lt;/span&gt;&lt;span style=&#34;color:#999999;--shiki-dark:#666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#B07D48;--shiki-dark:#BD976A&#34;&gt;version&lt;/span&gt;&lt;span style=&#34;color:#999999;--shiki-dark:#666666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#2F798A;--shiki-dark:#4C9A91&#34;&gt;15.2&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#B07D48;--shiki-dark:#BD976A&#34;&gt;compiler&lt;/span&gt;&lt;span style=&#34;color:#999999;--shiki-dark:#666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#B07D48;--shiki-dark:#BD976A&#34;&gt;libcxx&lt;/span&gt;&lt;span style=&#34;color:#999999;--shiki-dark:#666666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#393A34;--shiki-dark:#DBD7CAEE&#34;&gt;l&lt;/span&gt;&lt;span style=&#34;color:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic&#34;&gt;ibstdc++11&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#B07D48;--shiki-dark:#BD976A&#34;&gt;compiler&lt;/span&gt;&lt;span style=&#34;color:#999999;--shiki-dark:#666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#B07D48;--shiki-dark:#BD976A&#34;&gt;cppstd&lt;/span&gt;&lt;span style=&#34;color:#999999;--shiki-dark:#666666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#2F798A;--shiki-dark:#4C9A91&#34;&gt;20&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#2993a3;--shiki-dark:#5eaab5&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#59873A;--shiki-dark:#80A665&#34;&gt;conf&lt;/span&gt;&lt;span style=&#34;color:#2993a3;--shiki-dark:#5eaab5&#34;&gt;]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#A0ADA0;--shiki-dark:#758575DD&#34;&gt;# 告诉 Conan 加载我们自定义的 CMake 工具链文件&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#A0ADA0;--shiki-dark:#758575DD&#34;&gt;# 使用 tools.cmake.cmaketoolchain:user_toolchain 来指定&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#A0ADA0;--shiki-dark:#758575DD&#34;&gt;# 注意: $&amp;#123;profile_dir&amp;#125; 是 Conan 变量，但实践中建议使用绝对路径以确保正确识别&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic&#34;&gt;tools.cmake.cmaketoolchain:user_toolchain=&lt;/span&gt;&lt;span style=&#34;color:#2993a3;--shiki-light-font-style:italic;--shiki-dark:#5eaab5;--shiki-dark-font-style:italic&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic&#34;&gt;&#34;/path/to/your/project/cmake/aarch64-toolchain.cmake&#34;&lt;/span&gt;&lt;span style=&#34;color:#2993a3;--shiki-light-font-style:italic;--shiki-dark:#5eaab5;--shiki-dark-font-style:italic&#34;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;在对应的 &lt;code&gt;.cmake&lt;/code&gt; 工具链文件中，你需要设置交叉编译所需的编译器、系统根目录等环境变量。&lt;/p&gt;
+&lt;h3 id=&#34;2-执行编译流程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#2-执行编译流程&#34;&gt;#&lt;/a&gt; 2. 执行编译流程&lt;/h3&gt;
+&lt;p&gt;交叉编译的流程与本地编译非常相似，区别在于需要在 &lt;code&gt;conan install&lt;/code&gt; 命令中通过 &lt;code&gt;-pr:h&lt;/code&gt; 参数指定 Host 平台的 Profile 文件。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Conan 安装依赖&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&#34;shiki shiki-themes vitesse-light vitesse-dark&#34; style=&#34;background-color:#ffffff;--shiki-dark-bg:#121212;color:#393a34;--shiki-dark:#dbd7caee&#34; tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#59873A;--shiki-dark:#80A665&#34;&gt;conan&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; install&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; .&lt;/span&gt;&lt;span style=&#34;color:#A65E2B;--shiki-dark:#C99076&#34;&gt; --build=missing&lt;/span&gt;&lt;span style=&#34;color:#A65E2B;--shiki-dark:#C99076&#34;&gt; -s&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; build_type=Debug&lt;/span&gt;&lt;span style=&#34;color:#A65E2B;--shiki-dark:#C99076&#34;&gt; -pr:h&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; profiles/aarch64_profile&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;配置 CMake&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Conan 同样会生成适用于交叉编译的 CMake 预设。&lt;/p&gt;
+&lt;pre class=&#34;shiki shiki-themes vitesse-light vitesse-dark&#34; style=&#34;background-color:#ffffff;--shiki-dark-bg:#121212;color:#393a34;--shiki-dark:#dbd7caee&#34; tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#59873A;--shiki-dark:#80A665&#34;&gt;cmake&lt;/span&gt;&lt;span style=&#34;color:#A65E2B;--shiki-dark:#C99076&#34;&gt; --preset&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; conan-debug&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#59873A;--shiki-dark:#80A665&#34;&gt;cmake&lt;/span&gt;&lt;span style=&#34;color:#A65E2B;--shiki-dark:#C99076&#34;&gt; --preset&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; conan-release&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;编译&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&#34;shiki shiki-themes vitesse-light vitesse-dark&#34; style=&#34;background-color:#ffffff;--shiki-dark-bg:#121212;color:#393a34;--shiki-dark:#dbd7caee&#34; tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#59873A;--shiki-dark:#80A665&#34;&gt;cmake&lt;/span&gt;&lt;span style=&#34;color:#A65E2B;--shiki-dark:#C99076&#34;&gt; --build&lt;/span&gt;&lt;span style=&#34;color:#A65E2B;--shiki-dark:#C99076&#34;&gt; --preset&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; conan-debug&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#59873A;--shiki-dark:#80A665&#34;&gt;cmake&lt;/span&gt;&lt;span style=&#34;color:#A65E2B;--shiki-dark:#C99076&#34;&gt; --build&lt;/span&gt;&lt;span style=&#34;color:#A65E2B;--shiki-dark:#C99076&#34;&gt; --preset&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; conan-release&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        <category term="Programming" scheme="https://haoruanwn.github.io/categories/Programming/" />
+        <category term="CMake" scheme="https://haoruanwn.github.io/tags/CMake/" />
+        <category term="Conan" scheme="https://haoruanwn.github.io/tags/Conan/" />
+        <updated>2025-09-03T14:53:54.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://haoruanwn.github.io/2025/08/28/Programming/Rust/Rust%E7%9A%84%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</id>
         <title>Rust的错误处理</title>
-        <link rel="alternate" href="https://haoruanwn.github.io/2025/08/28/Rust%E7%9A%84%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/"/>
+        <link rel="alternate" href="https://haoruanwn.github.io/2025/08/28/Programming/Rust/Rust%E7%9A%84%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/"/>
         <content type="html">&lt;h1 id=&#34;rust-错误处理机制&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#rust-错误处理机制&#34;&gt;#&lt;/a&gt; Rust 错误处理机制&lt;/h1&gt;
 &lt;h2 id=&#34;一-错误分类可恢复与不可恢复&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#一-错误分类可恢复与不可恢复&#34;&gt;#&lt;/a&gt; 一、 错误分类：可恢复与不可恢复&lt;/h2&gt;
 &lt;p&gt;在 Rust 中，错误被分为两大类：不可恢复的错误和可恢复的错误。系统为这两种错误提供了不同的处理机制。&lt;/p&gt;
@@ -138,9 +248,9 @@
         <updated>2025-08-28T15:46:25.000Z</updated>
     </entry>
     <entry>
-        <id>https://haoruanwn.github.io/2025/08/28/Trait%E4%B8%8E%E5%87%BD%E6%95%B0%E7%AD%BE%E5%90%8D%E7%AE%80%E5%8C%96%EF%BC%88%E4%B8%89%EF%BC%89/</id>
+        <id>https://haoruanwn.github.io/2025/08/28/Programming/Rust/Trait%E4%B8%8E%E5%87%BD%E6%95%B0%E7%AD%BE%E5%90%8D%E7%AE%80%E5%8C%96%EF%BC%88%E4%B8%89%EF%BC%89/</id>
         <title>Trait与函数签名简化（三）</title>
-        <link rel="alternate" href="https://haoruanwn.github.io/2025/08/28/Trait%E4%B8%8E%E5%87%BD%E6%95%B0%E7%AD%BE%E5%90%8D%E7%AE%80%E5%8C%96%EF%BC%88%E4%B8%89%EF%BC%89/"/>
+        <link rel="alternate" href="https://haoruanwn.github.io/2025/08/28/Programming/Rust/Trait%E4%B8%8E%E5%87%BD%E6%95%B0%E7%AD%BE%E5%90%8D%E7%AE%80%E5%8C%96%EF%BC%88%E4%B8%89%EF%BC%89/"/>
         <content type="html">&lt;h1 id=&#34;指定返回类型impl-trait-语法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#指定返回类型impl-trait-语法&#34;&gt;#&lt;/a&gt; 指定返回类型：&lt;code&gt;impl Trait&lt;/code&gt; 语法&lt;/h1&gt;
 &lt;h3 id=&#34;核心问题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#核心问题&#34;&gt;#&lt;/a&gt; 核心问题&lt;/h3&gt;
 &lt;p&gt;当函数返回一个复杂但实现了某个 trait 的类型时，如何简化函数签名，同时又不丢失必要的类型信息？&lt;/p&gt;
@@ -2799,103 +2909,5 @@
         <category term="单板计算机/Linux开发板" scheme="https://haoruanwn.github.io/categories/SBC/" />
         <category term="系统配置" scheme="https://haoruanwn.github.io/tags/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/" />
         <updated>2025-07-28T13:45:22.000Z</updated>
-    </entry>
-    <entry>
-        <id>https://haoruanwn.github.io/2025/07/28/SBC/systemd%E8%AE%BE%E7%BD%AE%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF/</id>
-        <title>systemd设置开机自启</title>
-        <link rel="alternate" href="https://haoruanwn.github.io/2025/07/28/SBC/systemd%E8%AE%BE%E7%BD%AE%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF/"/>
-        <content type="html">&lt;h3 id=&#34;ubuntudebian-使用-systemd-设置开机自启服务快速指南&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ubuntudebian-使用-systemd-设置开机自启服务快速指南&#34;&gt;#&lt;/a&gt; &lt;strong&gt;Ubuntu/Debian 使用 &lt;code&gt;systemd&lt;/code&gt; 设置开机自启服务快速指南&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;本文档提供了在基于 &lt;code&gt;systemd&lt;/code&gt; 的现代 Linux 系统（如 Ubuntu, Debian 等）上创建和管理开机自启服务的标准流程。&lt;/p&gt;
-&lt;h4 id=&#34;第1步准备您的脚本&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#第1步准备您的脚本&#34;&gt;#&lt;/a&gt; &lt;strong&gt;第1步：准备您的脚本&lt;/strong&gt;&lt;/h4&gt;
-&lt;p&gt;确保您的脚本可以被系统直接执行。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;指定解释器 (Shebang)&lt;/p&gt;
-&lt;p&gt;在脚本文件的第一行，指明用于执行它的程序。&lt;/p&gt;
-&lt;pre class=&#34;shiki shiki-themes vitesse-light vitesse-dark&#34; style=&#34;background-color:#ffffff;--shiki-dark-bg:#121212;color:#393a34;--shiki-dark:#dbd7caee&#34; tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#A0ADA0;--shiki-dark:#758575DD&#34;&gt;#!/usr/bin/env python3 &lt;/span&gt;&lt;/span&gt;
-&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#A0ADA0;--shiki-dark:#758575DD&#34;&gt;# 或者 #!/bin/bash&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;放置在标准位置&lt;/p&gt;
-&lt;p&gt;将脚本移动到系统的可执行路径下，推荐使用 /usr/local/bin。&lt;/p&gt;
-&lt;pre class=&#34;shiki shiki-themes vitesse-light vitesse-dark&#34; style=&#34;background-color:#ffffff;--shiki-dark-bg:#121212;color:#393a34;--shiki-dark:#dbd7caee&#34; tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#59873A;--shiki-dark:#80A665&#34;&gt;sudo&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; mv&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; your_script.py&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; /usr/local/bin/&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;赋予执行权限&lt;/p&gt;
-&lt;p&gt;使脚本文件变为可执行。&lt;/p&gt;
-&lt;pre class=&#34;shiki shiki-themes vitesse-light vitesse-dark&#34; style=&#34;background-color:#ffffff;--shiki-dark-bg:#121212;color:#393a34;--shiki-dark:#dbd7caee&#34; tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#59873A;--shiki-dark:#80A665&#34;&gt;sudo&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; chmod&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; +x&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; /usr/local/bin/your_script.py&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;hr /&gt;
-&lt;h4 id=&#34;第2步创建-systemd-服务文件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#第2步创建-systemd-服务文件&#34;&gt;#&lt;/a&gt; &lt;strong&gt;第2步：创建 &lt;code&gt;systemd&lt;/code&gt; 服务文件&lt;/strong&gt;&lt;/h4&gt;
-&lt;p&gt;创建一个服务单元文件来告诉 &lt;code&gt;systemd&lt;/code&gt; 如何管理您的脚本。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;创建 .service 文件&lt;/p&gt;
-&lt;p&gt;在 /etc/systemd/system/ 目录下创建一个以 .service 结尾的新文件。文件名将作为您的服务名。&lt;/p&gt;
-&lt;pre class=&#34;shiki shiki-themes vitesse-light vitesse-dark&#34; style=&#34;background-color:#ffffff;--shiki-dark-bg:#121212;color:#393a34;--shiki-dark:#dbd7caee&#34; tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#59873A;--shiki-dark:#80A665&#34;&gt;sudo&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; nano&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; /etc/systemd/system/myservice.service&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;填入模板内容&lt;/p&gt;
-&lt;p&gt;将以下模板粘贴到文件中，并根据您的需求修改 Description 和 ExecStart 字段。&lt;/p&gt;
-&lt;pre class=&#34;shiki shiki-themes vitesse-light vitesse-dark&#34; style=&#34;background-color:#ffffff;--shiki-dark-bg:#121212;color:#393a34;--shiki-dark:#dbd7caee&#34; tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-ini&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#2993a3;--shiki-dark:#5eaab5&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#59873A;--shiki-dark:#80A665&#34;&gt;Unit&lt;/span&gt;&lt;span style=&#34;color:#2993a3;--shiki-dark:#5eaab5&#34;&gt;]&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#A0ADA0;--shiki-dark:#758575DD&#34;&gt;# 对服务的简短描述&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#1E754F;--shiki-dark:#4D9375&#34;&gt;Description&lt;/span&gt;&lt;span style=&#34;color:#999999;--shiki-dark:#666666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#393A34;--shiki-dark:#DBD7CAEE&#34;&gt;My Custom Startup Service&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;
-&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#A0ADA0;--shiki-dark:#758575DD&#34;&gt;# 指定服务在网络准备好之后启动&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#1E754F;--shiki-dark:#4D9375&#34;&gt;After&lt;/span&gt;&lt;span style=&#34;color:#999999;--shiki-dark:#666666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#393A34;--shiki-dark:#DBD7CAEE&#34;&gt;network.target&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;
-&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#2993a3;--shiki-dark:#5eaab5&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#59873A;--shiki-dark:#80A665&#34;&gt;Service&lt;/span&gt;&lt;span style=&#34;color:#2993a3;--shiki-dark:#5eaab5&#34;&gt;]&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#A0ADA0;--shiki-dark:#758575DD&#34;&gt;# 指定要执行的脚本的完整路径&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#1E754F;--shiki-dark:#4D9375&#34;&gt;ExecStart&lt;/span&gt;&lt;span style=&#34;color:#999999;--shiki-dark:#666666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#393A34;--shiki-dark:#DBD7CAEE&#34;&gt;/usr/local/bin/your_script.py&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;
-&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#A0ADA0;--shiki-dark:#758575DD&#34;&gt;# 定义服务失败后总是自动重启&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#1E754F;--shiki-dark:#4D9375&#34;&gt;Restart&lt;/span&gt;&lt;span style=&#34;color:#999999;--shiki-dark:#666666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#393A34;--shiki-dark:#DBD7CAEE&#34;&gt;always&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;
-&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#2993a3;--shiki-dark:#5eaab5&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#59873A;--shiki-dark:#80A665&#34;&gt;Install&lt;/span&gt;&lt;span style=&#34;color:#2993a3;--shiki-dark:#5eaab5&#34;&gt;]&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#A0ADA0;--shiki-dark:#758575DD&#34;&gt;# 指定服务在多用户模式下启用&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#1E754F;--shiki-dark:#4D9375&#34;&gt;WantedBy&lt;/span&gt;&lt;span style=&#34;color:#999999;--shiki-dark:#666666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#393A34;--shiki-dark:#DBD7CAEE&#34;&gt;multi-user.target&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;hr /&gt;
-&lt;h4 id=&#34;第3步管理服务&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#第3步管理服务&#34;&gt;#&lt;/a&gt; &lt;strong&gt;第3步：管理服务&lt;/strong&gt;&lt;/h4&gt;
-&lt;p&gt;使用 &lt;code&gt;systemctl&lt;/code&gt; 命令来控制您的新服务。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;重新加载配置&lt;/p&gt;
-&lt;p&gt;在创建或修改服务文件后，必须运行此命令来让 systemd 读取新的配置。&lt;/p&gt;
-&lt;pre class=&#34;shiki shiki-themes vitesse-light vitesse-dark&#34; style=&#34;background-color:#ffffff;--shiki-dark-bg:#121212;color:#393a34;--shiki-dark:#dbd7caee&#34; tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#59873A;--shiki-dark:#80A665&#34;&gt;sudo&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; systemctl&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; daemon-reload&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;启用服务&lt;/p&gt;
-&lt;p&gt;将服务设置为开机自启。&lt;/p&gt;
-&lt;pre class=&#34;shiki shiki-themes vitesse-light vitesse-dark&#34; style=&#34;background-color:#ffffff;--shiki-dark-bg:#121212;color:#393a34;--shiki-dark:#dbd7caee&#34; tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#59873A;--shiki-dark:#80A665&#34;&gt;sudo&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; systemctl&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; enable&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; myservice.service&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;立即启动服务&lt;/p&gt;
-&lt;p&gt;无需重启，立即运行您的服务以进行测试。&lt;/p&gt;
-&lt;pre class=&#34;shiki shiki-themes vitesse-light vitesse-dark&#34; style=&#34;background-color:#ffffff;--shiki-dark-bg:#121212;color:#393a34;--shiki-dark:#dbd7caee&#34; tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#59873A;--shiki-dark:#80A665&#34;&gt;sudo&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; systemctl&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; start&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; myservice.service&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;检查服务状态&lt;/p&gt;
-&lt;p&gt;查看服务是否正在运行，以及查看最新的日志输出，这是调试的关键。&lt;/p&gt;
-&lt;pre class=&#34;shiki shiki-themes vitesse-light vitesse-dark&#34; style=&#34;background-color:#ffffff;--shiki-dark-bg:#121212;color:#393a34;--shiki-dark:#dbd7caee&#34; tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#59873A;--shiki-dark:#80A665&#34;&gt;sudo&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; systemctl&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; status&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; myservice.service&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;hr /&gt;
-&lt;h3 id=&#34;常用命令备忘&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#常用命令备忘&#34;&gt;#&lt;/a&gt; &lt;strong&gt;常用命令备忘&lt;/strong&gt;&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;启用开机自启&lt;/strong&gt;： &lt;code&gt;sudo systemctl enable myservice.service&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;禁止开机自启&lt;/strong&gt;： &lt;code&gt;sudo systemctl disable myservice.service&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;启动服务&lt;/strong&gt;： &lt;code&gt;sudo systemctl start myservice.service&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;停止服务&lt;/strong&gt;： &lt;code&gt;sudo systemctl stop myservice.service&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;重启服务&lt;/strong&gt;： &lt;code&gt;sudo systemctl restart myservice.service&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;查看状态和日志&lt;/strong&gt;：&lt;code&gt;sudo systemctl status myservice.service&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;查看完整日志&lt;/strong&gt;： &lt;code&gt;sudo journalctl -u myservice.service&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-        <category term="单板计算机/Linux开发板" scheme="https://haoruanwn.github.io/categories/SBC/" />
-        <category term="系统配置" scheme="https://haoruanwn.github.io/tags/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/" />
-        <updated>2025-07-28T13:43:52.000Z</updated>
     </entry>
 </feed>
