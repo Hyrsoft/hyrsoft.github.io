@@ -1,4 +1,4 @@
-alternate: MCU/Linux/PCBA/SBC # 站点大标题
+alternate: A Life of Possibilities # 站点大标题
 
 statics: "/" # 静态文件根目录
 assets: "assets"
@@ -243,7 +243,7 @@ social:
   github: https://github.com/haoruanwn || github || "#191717"
   #gitee: https://gitee.com/yourname || gitee || "#e60026"
   #google: https://plus.google.com/yourname || google
-  #twitter: https://twitter.com/yourname || twitter || "#00aff0"
+  twitter: https://x.com/haoruanwn || twitter || "#00aff0"
   zhihu: https://www.zhihu.com/people/hao-hao-47-61-37 || zhihu || "#1e88e5"
   #music: https://music.163.com/#/user/home?id=yourid || cloud-music || "#e60026"
   #weibo: https://weibo.com/yourname || weibo || "#ea716e"
