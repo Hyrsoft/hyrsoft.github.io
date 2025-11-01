@@ -2,13 +2,13 @@
 ## Docs: https://hexo.io/docs/configuration.html
 ## Source: https://github.com/hexojs/hexo/
 # Site
-title: 好暖好温暖的博客 # 例如：张三的博客
-subtitle: '不想转码的EE人不是好的嵌入式工程师' # 例如：记录学习与生活
-description: '记录学习与生活的点滴' # 这对SEO很重要
+title: 好暖好温暖的博客 
+subtitle: 'Do one thing and do it well.' 
+description: '记录学习与生活的点滴' 
 keywords:
-author: 好软好温暖 # 例如：张三
-language: zh-CN # 语言，简体中文请使用 zh-CN
-timezone: 'Asia/Shanghai' # 时区，国内用户建议使用 Asia/Shanghai
+author: 好软好温暖 
+language: zh-CN 
+timezone: 'Asia/Shanghai' 
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'

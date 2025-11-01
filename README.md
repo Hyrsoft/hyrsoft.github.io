@@ -4,3 +4,5 @@
 ## 一、部署
 
 pnpm dlx hexo s 
+
+图片管理：themes/shokax/_images.yml

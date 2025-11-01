@@ -35,15 +35,15 @@ homeConfig:
     enableNextGradientCover: false # 使用CSS渐变作为上/下一页封面
   cateCards:
     - slug: MCU
-      cover: MCU/cover.jpg
+      cover: MCU/cover.png
     - slug: ENV_CONFIG
       cover: ENV_CONFIG/cover.jpg
     - slug: Linux
-      cover: Linux/cover.jpg
+      cover: Linux/cover.png
     - slug: Programming
-      cover: Programming/cover.jpg
+      cover: Programming/cover.png
     - slug: SBC
-      cover: SBC/cover.jpg
+      cover: SBC/cover.png
     - slug: Rust
       cover: Rust/cover.jpg
     - slug: C++
