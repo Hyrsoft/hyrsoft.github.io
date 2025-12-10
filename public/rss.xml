@@ -3,8 +3,8 @@
     <channel>
         <title>好暖好温暖的博客</title>
         <subtitle>Do one thing and do it well.</subtitle>
-        <icon>https://soruan.github.io/assets/favicon.ico</icon>
-        <link>https://soruan.github.io</link>
+        <icon>https://soruany.github.io/assets/favicon.ico</icon>
+        <link>https://soruany.github.io</link>
         <author>
           <name>好软好温暖</name>
         </author>
@@ -13,11 +13,11 @@
         <pubDate>Fri, 28 Nov 2025 14:59:32 +0800</pubDate>
         <lastBuildDate>Fri, 28 Nov 2025 14:59:32 +0800</lastBuildDate>
         <item>
-            <guid isPermalink="true">https://soruan.github.io/2025/11/28/Frp%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E5%88%B0%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+            <guid isPermalink="true">https://soruany.github.io/2025/11/28/Frp%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E5%88%B0%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
             <title>Frp内网穿透到云服务器</title>
-            <link>https://soruan.github.io/2025/11/28/Frp%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E5%88%B0%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
-            <category term="环境配置&amp;工具使用" scheme="https://soruan.github.io/categories/ENV-CONFIG/" />
-            <category term="Frp" scheme="https://soruan.github.io/tags/Frp/" />
+            <link>https://soruany.github.io/2025/11/28/Frp%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E5%88%B0%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+            <category term="环境配置&amp;工具使用" scheme="https://soruany.github.io/categories/ENV-CONFIG/" />
+            <category term="Frp" scheme="https://soruany.github.io/tags/Frp/" />
             <pubDate>Fri, 28 Nov 2025 14:59:32 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;frp内网穿透&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#frp内网穿透&#34;&gt;#&lt;/a&gt; Frp内网穿透&lt;/h1&gt;
 &lt;p&gt;把本地服务器的端口映射到公网服务器，通过公网服务器ip地址+端口来访问内网&lt;/p&gt;
@@ -159,11 +159,11 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://soruan.github.io/2025/11/12/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE&amp;%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/ADB%E5%B7%A5%E5%85%B7%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95/</guid>
+            <guid isPermalink="true">https://soruany.github.io/2025/11/12/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE&amp;%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/ADB%E5%B7%A5%E5%85%B7%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95/</guid>
             <title>ADB工具基础用法</title>
-            <link>https://soruan.github.io/2025/11/12/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE&amp;%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/ADB%E5%B7%A5%E5%85%B7%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95/</link>
-            <category term="环境配置&amp;工具使用" scheme="https://soruan.github.io/categories/ENV-CONFIG/" />
-            <category term="ADB" scheme="https://soruan.github.io/tags/ADB/" />
+            <link>https://soruany.github.io/2025/11/12/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE&amp;%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/ADB%E5%B7%A5%E5%85%B7%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95/</link>
+            <category term="环境配置&amp;工具使用" scheme="https://soruany.github.io/categories/ENV-CONFIG/" />
+            <category term="ADB" scheme="https://soruany.github.io/tags/ADB/" />
             <pubDate>Wed, 12 Nov 2025 15:30:32 +0800</pubDate>
             <description><![CDATA[ &lt;h3 id=&#34;设备管理-device-management&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#设备管理-device-management&#34;&gt;#&lt;/a&gt; 设备管理 (Device Management)&lt;/h3&gt;
 &lt;table&gt;
@@ -296,11 +296,11 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://soruan.github.io/2025/11/12/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE&amp;%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/NetWorkManager/</guid>
+            <guid isPermalink="true">https://soruany.github.io/2025/11/12/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE&amp;%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/NetWorkManager/</guid>
             <title>NetWorkManager</title>
-            <link>https://soruan.github.io/2025/11/12/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE&amp;%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/NetWorkManager/</link>
-            <category term="环境配置&amp;工具使用" scheme="https://soruan.github.io/categories/ENV-CONFIG/" />
-            <category term="网络" scheme="https://soruan.github.io/tags/%E7%BD%91%E7%BB%9C/" />
+            <link>https://soruany.github.io/2025/11/12/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE&amp;%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/NetWorkManager/</link>
+            <category term="环境配置&amp;工具使用" scheme="https://soruany.github.io/categories/ENV-CONFIG/" />
+            <category term="网络" scheme="https://soruany.github.io/tags/%E7%BD%91%E7%BB%9C/" />
             <pubDate>Wed, 12 Nov 2025 15:30:16 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;使用-nmcli-管理网络连接&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用-nmcli-管理网络连接&#34;&gt;#&lt;/a&gt; 使用 &lt;code&gt;nmcli&lt;/code&gt; 管理网络连接&lt;/h1&gt;
 &lt;p&gt;&lt;code&gt;nmcli&lt;/code&gt; 是 NetworkManager 的命令行客户端，是在现代 Linux 发行版（如 Debian、Ubuntu、CentOS）中管理网络连接的强大工具。&lt;/p&gt;
@@ -469,11 +469,11 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://soruan.github.io/2025/11/12/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE&amp;%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/Tmux%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7/</guid>
+            <guid isPermalink="true">https://soruany.github.io/2025/11/12/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE&amp;%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/Tmux%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7/</guid>
             <title>Tmux终端复用工具</title>
-            <link>https://soruan.github.io/2025/11/12/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE&amp;%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/Tmux%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7/</link>
-            <category term="环境配置&amp;工具使用" scheme="https://soruan.github.io/categories/ENV-CONFIG/" />
-            <category term="Tmux" scheme="https://soruan.github.io/tags/Tmux/" />
+            <link>https://soruany.github.io/2025/11/12/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE&amp;%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/Tmux%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E5%85%B7/</link>
+            <category term="环境配置&amp;工具使用" scheme="https://soruany.github.io/categories/ENV-CONFIG/" />
+            <category term="Tmux" scheme="https://soruany.github.io/tags/Tmux/" />
             <pubDate>Wed, 12 Nov 2025 15:30:04 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;&lt;strong&gt;&lt;code&gt;tmux&lt;/code&gt; (Terminal Multiplexer)&lt;/strong&gt; 是一种终端复用器。它可以让你：&lt;/p&gt;
 &lt;ol&gt;
@@ -562,11 +562,11 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://soruan.github.io/2025/11/12/SBC/%E4%B8%80%E7%A7%8D%E5%9F%BA%E4%BA%8E%E8%BD%AFAP%E7%9A%84Linux%E8%AE%BE%E5%A4%87%E9%85%8D%E7%BD%91%E7%AD%96%E7%95%A5/</guid>
+            <guid isPermalink="true">https://soruany.github.io/2025/11/12/SBC/%E4%B8%80%E7%A7%8D%E5%9F%BA%E4%BA%8E%E8%BD%AFAP%E7%9A%84Linux%E8%AE%BE%E5%A4%87%E9%85%8D%E7%BD%91%E7%AD%96%E7%95%A5/</guid>
             <title>一种基于软AP的Linux设备配网策略</title>
-            <link>https://soruan.github.io/2025/11/12/SBC/%E4%B8%80%E7%A7%8D%E5%9F%BA%E4%BA%8E%E8%BD%AFAP%E7%9A%84Linux%E8%AE%BE%E5%A4%87%E9%85%8D%E7%BD%91%E7%AD%96%E7%95%A5/</link>
-            <category term="SBC" scheme="https://soruan.github.io/categories/SBC/" />
-            <category term="网络" scheme="https://soruan.github.io/tags/%E7%BD%91%E7%BB%9C/" />
+            <link>https://soruany.github.io/2025/11/12/SBC/%E4%B8%80%E7%A7%8D%E5%9F%BA%E4%BA%8E%E8%BD%AFAP%E7%9A%84Linux%E8%AE%BE%E5%A4%87%E9%85%8D%E7%BD%91%E7%AD%96%E7%95%A5/</link>
+            <category term="SBC" scheme="https://soruany.github.io/categories/SBC/" />
+            <category term="网络" scheme="https://soruany.github.io/tags/%E7%BD%91%E7%BB%9C/" />
             <pubDate>Wed, 12 Nov 2025 15:03:52 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;一种基于软ap的linux设备配网策略&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#一种基于软ap的linux设备配网策略&#34;&gt;#&lt;/a&gt; 一种基于软AP的Linux设备配网策略&lt;/h1&gt;
 &lt;h4 id=&#34;背景&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#背景&#34;&gt;#&lt;/a&gt; 背景&lt;/h4&gt;
@@ -743,11 +743,11 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://soruan.github.io/2025/11/01/Programming/Rust/Rust%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</guid>
+            <guid isPermalink="true">https://soruany.github.io/2025/11/01/Programming/Rust/Rust%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</guid>
             <title>Rust生命周期</title>
-            <link>https://soruan.github.io/2025/11/01/Programming/Rust/Rust%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</link>
-            <category term="Programming" scheme="https://soruan.github.io/categories/Programming/" />
-            <category term="Rust" scheme="https://soruan.github.io/tags/Rust/" />
+            <link>https://soruany.github.io/2025/11/01/Programming/Rust/Rust%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</link>
+            <category term="Programming" scheme="https://soruany.github.io/categories/Programming/" />
+            <category term="Rust" scheme="https://soruany.github.io/tags/Rust/" />
             <pubDate>Sat, 01 Nov 2025 23:24:54 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;rust-生命周期-lifetime&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#rust-生命周期-lifetime&#34;&gt;#&lt;/a&gt; Rust 生命周期 (Lifetime)&lt;/h1&gt;
 &lt;p&gt;Rust 中的每一个引用都有其生命周期（lifetime），也就是引用保持有效的作用域。大部分时候，生命周期是隐式且可以被推断的，类似于类型推断。然而，当引用的生命周期可能以多种方式互相关联时，Rust 会要求我们使用泛型生命周期参数来手动标注生命周期，以确保运行时不会出现悬垂引用。&lt;/p&gt;
@@ -882,11 +882,11 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://soruan.github.io/2025/11/01/Programming/Rust/Rust%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/</guid>
+            <guid isPermalink="true">https://soruany.github.io/2025/11/01/Programming/Rust/Rust%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/</guid>
             <title>Rust智能指针</title>
-            <link>https://soruan.github.io/2025/11/01/Programming/Rust/Rust%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/</link>
-            <category term="Programming" scheme="https://soruan.github.io/categories/Programming/" />
-            <category term="Rust" scheme="https://soruan.github.io/tags/Rust/" />
+            <link>https://soruany.github.io/2025/11/01/Programming/Rust/Rust%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/</link>
+            <category term="Programming" scheme="https://soruany.github.io/categories/Programming/" />
+            <category term="Rust" scheme="https://soruany.github.io/tags/Rust/" />
             <pubDate>Sat, 01 Nov 2025 23:24:39 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;智能指针&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#智能指针&#34;&gt;#&lt;/a&gt; 智能指针&lt;/h1&gt;
 &lt;p&gt;智能指针（Smart Pointers）是类似指针的数据结构，但它们具有额外的元数据和功能。与引用（&lt;code&gt;&amp;amp;&lt;/code&gt;）不同，引用仅借用数据，而智能指针通常拥有它们指向的数据。&lt;/p&gt;
@@ -1108,11 +1108,11 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://soruan.github.io/2025/11/01/Programming/Rust/Rust%E8%BF%AD%E4%BB%A3%E5%99%A8/</guid>
+            <guid isPermalink="true">https://soruany.github.io/2025/11/01/Programming/Rust/Rust%E8%BF%AD%E4%BB%A3%E5%99%A8/</guid>
             <title>Rust迭代器</title>
-            <link>https://soruan.github.io/2025/11/01/Programming/Rust/Rust%E8%BF%AD%E4%BB%A3%E5%99%A8/</link>
-            <category term="Programming" scheme="https://soruan.github.io/categories/Programming/" />
-            <category term="Rust" scheme="https://soruan.github.io/tags/Rust/" />
+            <link>https://soruany.github.io/2025/11/01/Programming/Rust/Rust%E8%BF%AD%E4%BB%A3%E5%99%A8/</link>
+            <category term="Programming" scheme="https://soruany.github.io/categories/Programming/" />
+            <category term="Rust" scheme="https://soruany.github.io/tags/Rust/" />
             <pubDate>Sat, 01 Nov 2025 23:24:21 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;rust-迭代器-iterators&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#rust-迭代器-iterators&#34;&gt;#&lt;/a&gt; Rust 迭代器 (Iterators)&lt;/h1&gt;
 &lt;p&gt;Rust 的迭代器（Iterator）允许我们对一个序列（如 &lt;code&gt;Vec&lt;/code&gt;）中的每个项依次执行某些操作。&lt;/p&gt;
@@ -1264,11 +1264,11 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://soruan.github.io/2025/11/01/Programming/Rust/Rust%E9%97%AD%E5%8C%85/</guid>
+            <guid isPermalink="true">https://soruany.github.io/2025/11/01/Programming/Rust/Rust%E9%97%AD%E5%8C%85/</guid>
             <title>Rust闭包</title>
-            <link>https://soruan.github.io/2025/11/01/Programming/Rust/Rust%E9%97%AD%E5%8C%85/</link>
-            <category term="Programming" scheme="https://soruan.github.io/categories/Programming/" />
-            <category term="Rust" scheme="https://soruan.github.io/tags/Rust/" />
+            <link>https://soruany.github.io/2025/11/01/Programming/Rust/Rust%E9%97%AD%E5%8C%85/</link>
+            <category term="Programming" scheme="https://soruany.github.io/categories/Programming/" />
+            <category term="Rust" scheme="https://soruany.github.io/tags/Rust/" />
             <pubDate>Sat, 01 Nov 2025 23:24:05 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;rust-闭包closure&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#rust-闭包closure&#34;&gt;#&lt;/a&gt; Rust 闭包（Closure）&lt;/h1&gt;
 &lt;p&gt;闭包是一种可以捕获其环境中变量的匿名函数。它在 Rust 中被广泛用于函数式编程、迭代器处理和并发编程。&lt;/p&gt;
@@ -1480,11 +1480,11 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://soruan.github.io/2025/11/01/Programming/Rust/Rust%E5%B7%A5%E5%85%B7%E9%93%BE%E7%AE%A1%E7%90%86/</guid>
+            <guid isPermalink="true">https://soruany.github.io/2025/11/01/Programming/Rust/Rust%E5%B7%A5%E5%85%B7%E9%93%BE%E7%AE%A1%E7%90%86/</guid>
             <title>Rust工具链管理</title>
-            <link>https://soruan.github.io/2025/11/01/Programming/Rust/Rust%E5%B7%A5%E5%85%B7%E9%93%BE%E7%AE%A1%E7%90%86/</link>
-            <category term="Programming" scheme="https://soruan.github.io/categories/Programming/" />
-            <category term="Rust" scheme="https://soruan.github.io/tags/Rust/" />
+            <link>https://soruany.github.io/2025/11/01/Programming/Rust/Rust%E5%B7%A5%E5%85%B7%E9%93%BE%E7%AE%A1%E7%90%86/</link>
+            <category term="Programming" scheme="https://soruany.github.io/categories/Programming/" />
+            <category term="Rust" scheme="https://soruany.github.io/tags/Rust/" />
             <pubDate>Sat, 01 Nov 2025 23:22:23 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;rust工具链管理&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#rust工具链管理&#34;&gt;#&lt;/a&gt; rust工具链管理&lt;/h1&gt;
 &lt;p&gt;在 Rust 开发中，我们经常需要在 &lt;code&gt;stable&lt;/code&gt;（稳定版）和 &lt;code&gt;nightly&lt;/code&gt;（每夜构建版）工具链之间切换，尤其是在需要使用尚未稳定的新特性时。如果为每个项目手动切换全局工具链，会非常繁琐且容易出错。&lt;code&gt;rustup&lt;/code&gt; 提供了强大且优雅的机制来解决这个问题。&lt;/p&gt;
@@ -1575,12 +1575,12 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://soruan.github.io/2025/09/07/Programming/C++/%E7%8E%B0%E4%BB%A3C-%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/</guid>
+            <guid isPermalink="true">https://soruany.github.io/2025/09/07/Programming/C++/%E7%8E%B0%E4%BB%A3C-%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/</guid>
             <title>现代C++强制类型转换</title>
-            <link>https://soruan.github.io/2025/09/07/Programming/C++/%E7%8E%B0%E4%BB%A3C-%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/</link>
-            <category term="Programming" scheme="https://soruan.github.io/categories/Programming/" />
-            <category term="C" scheme="https://soruan.github.io/tags/C/" />
-            <category term="C++" scheme="https://soruan.github.io/tags/C/" />
+            <link>https://soruany.github.io/2025/09/07/Programming/C++/%E7%8E%B0%E4%BB%A3C-%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/</link>
+            <category term="Programming" scheme="https://soruany.github.io/categories/Programming/" />
+            <category term="C" scheme="https://soruany.github.io/tags/C/" />
+            <category term="C++" scheme="https://soruany.github.io/tags/C/" />
             <pubDate>Sun, 07 Sep 2025 00:13:19 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;现代c强制类型转换&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#现代c强制类型转换&#34;&gt;#&lt;/a&gt; 现代C++强制类型转换&lt;/h1&gt;
 &lt;p&gt;在C++中，提供了四种特定的强制类型转换操作符，以提供更安全、更明确的类型转换，它们分别是 &lt;code&gt;static_cast&lt;/code&gt;、&lt;code&gt;dynamic_cast&lt;/code&gt;、&lt;code&gt;const_cast&lt;/code&gt; 和 &lt;code&gt;reinterpret_cast&lt;/code&gt;。&lt;/p&gt;
@@ -1828,12 +1828,12 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://soruan.github.io/2025/09/07/Programming/C++/%E5%AD%97%E8%8A%82%E5%BA%8F%E4%B8%8E%E5%86%85%E5%AD%98%E5%AF%B9%E9%BD%90/</guid>
+            <guid isPermalink="true">https://soruany.github.io/2025/09/07/Programming/C++/%E5%AD%97%E8%8A%82%E5%BA%8F%E4%B8%8E%E5%86%85%E5%AD%98%E5%AF%B9%E9%BD%90/</guid>
             <title>字节序与内存对齐</title>
-            <link>https://soruan.github.io/2025/09/07/Programming/C++/%E5%AD%97%E8%8A%82%E5%BA%8F%E4%B8%8E%E5%86%85%E5%AD%98%E5%AF%B9%E9%BD%90/</link>
-            <category term="Programming" scheme="https://soruan.github.io/categories/Programming/" />
-            <category term="C" scheme="https://soruan.github.io/tags/C/" />
-            <category term="C++" scheme="https://soruan.github.io/tags/C/" />
+            <link>https://soruany.github.io/2025/09/07/Programming/C++/%E5%AD%97%E8%8A%82%E5%BA%8F%E4%B8%8E%E5%86%85%E5%AD%98%E5%AF%B9%E9%BD%90/</link>
+            <category term="Programming" scheme="https://soruany.github.io/categories/Programming/" />
+            <category term="C" scheme="https://soruany.github.io/tags/C/" />
+            <category term="C++" scheme="https://soruany.github.io/tags/C/" />
             <pubDate>Sun, 07 Sep 2025 00:12:51 +0800</pubDate>
             <description><![CDATA[ &lt;h3 id=&#34;1-字节序-endianness-大小端模式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1-字节序-endianness-大小端模式&#34;&gt;#&lt;/a&gt; 1. 字节序 (Endianness / 大小端模式)&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;核心概念&lt;/strong&gt;：字节序定义了&lt;strong&gt;多字节数据类型&lt;/strong&gt;（例如 &lt;code&gt;int&lt;/code&gt;, &lt;code&gt;short&lt;/code&gt;, &lt;code&gt;double&lt;/code&gt; 等）在内存中是如何存储其字节的顺序。&lt;/p&gt;
@@ -1996,12 +1996,12 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://soruan.github.io/2025/09/03/Programming/C++/Conan-CMake%E5%9F%BA%E6%9C%AC%E7%BC%96%E8%AF%91%E6%B5%81%E7%A8%8B/</guid>
+            <guid isPermalink="true">https://soruany.github.io/2025/09/03/Programming/C++/Conan-CMake%E5%9F%BA%E6%9C%AC%E7%BC%96%E8%AF%91%E6%B5%81%E7%A8%8B/</guid>
             <title>Conan+CMake基本编译流程</title>
-            <link>https://soruan.github.io/2025/09/03/Programming/C++/Conan-CMake%E5%9F%BA%E6%9C%AC%E7%BC%96%E8%AF%91%E6%B5%81%E7%A8%8B/</link>
-            <category term="Programming" scheme="https://soruan.github.io/categories/Programming/" />
-            <category term="CMake" scheme="https://soruan.github.io/tags/CMake/" />
-            <category term="Conan" scheme="https://soruan.github.io/tags/Conan/" />
+            <link>https://soruany.github.io/2025/09/03/Programming/C++/Conan-CMake%E5%9F%BA%E6%9C%AC%E7%BC%96%E8%AF%91%E6%B5%81%E7%A8%8B/</link>
+            <category term="Programming" scheme="https://soruany.github.io/categories/Programming/" />
+            <category term="CMake" scheme="https://soruany.github.io/tags/CMake/" />
+            <category term="Conan" scheme="https://soruany.github.io/tags/Conan/" />
             <pubDate>Wed, 03 Sep 2025 22:53:54 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;conancmake基本编译流程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#conancmake基本编译流程&#34;&gt;#&lt;/a&gt; Conan+CMake基本编译流程&lt;/h1&gt;
 &lt;h2 id=&#34;本地编译&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#本地编译&#34;&gt;#&lt;/a&gt; 本地编译&lt;/h2&gt;
@@ -2106,11 +2106,11 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://soruan.github.io/2025/08/28/Programming/Rust/Rust%E7%9A%84%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</guid>
+            <guid isPermalink="true">https://soruany.github.io/2025/08/28/Programming/Rust/Rust%E7%9A%84%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</guid>
             <title>Rust的错误处理</title>
-            <link>https://soruan.github.io/2025/08/28/Programming/Rust/Rust%E7%9A%84%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</link>
-            <category term="Programming" scheme="https://soruan.github.io/categories/Programming/" />
-            <category term="Rust" scheme="https://soruan.github.io/tags/Rust/" />
+            <link>https://soruany.github.io/2025/08/28/Programming/Rust/Rust%E7%9A%84%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</link>
+            <category term="Programming" scheme="https://soruany.github.io/categories/Programming/" />
+            <category term="Rust" scheme="https://soruany.github.io/tags/Rust/" />
             <pubDate>Thu, 28 Aug 2025 23:46:25 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;rust-错误处理机制&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#rust-错误处理机制&#34;&gt;#&lt;/a&gt; Rust 错误处理机制&lt;/h1&gt;
 &lt;h2 id=&#34;一-错误分类可恢复与不可恢复&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#一-错误分类可恢复与不可恢复&#34;&gt;#&lt;/a&gt; 一、 错误分类：可恢复与不可恢复&lt;/h2&gt;
@@ -2234,11 +2234,11 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://soruan.github.io/2025/08/28/Programming/Rust/Trait%E4%B8%8E%E5%87%BD%E6%95%B0%E7%AD%BE%E5%90%8D%E7%AE%80%E5%8C%96%EF%BC%88%E4%B8%89%EF%BC%89/</guid>
+            <guid isPermalink="true">https://soruany.github.io/2025/08/28/Programming/Rust/Trait%E4%B8%8E%E5%87%BD%E6%95%B0%E7%AD%BE%E5%90%8D%E7%AE%80%E5%8C%96%EF%BC%88%E4%B8%89%EF%BC%89/</guid>
             <title>Trait与函数签名简化（三）</title>
-            <link>https://soruan.github.io/2025/08/28/Programming/Rust/Trait%E4%B8%8E%E5%87%BD%E6%95%B0%E7%AD%BE%E5%90%8D%E7%AE%80%E5%8C%96%EF%BC%88%E4%B8%89%EF%BC%89/</link>
-            <category term="Programming" scheme="https://soruan.github.io/categories/Programming/" />
-            <category term="Rust" scheme="https://soruan.github.io/tags/Rust/" />
+            <link>https://soruany.github.io/2025/08/28/Programming/Rust/Trait%E4%B8%8E%E5%87%BD%E6%95%B0%E7%AD%BE%E5%90%8D%E7%AE%80%E5%8C%96%EF%BC%88%E4%B8%89%EF%BC%89/</link>
+            <category term="Programming" scheme="https://soruany.github.io/categories/Programming/" />
+            <category term="Rust" scheme="https://soruany.github.io/tags/Rust/" />
             <pubDate>Thu, 28 Aug 2025 23:14:45 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;指定返回类型impl-trait-语法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#指定返回类型impl-trait-语法&#34;&gt;#&lt;/a&gt; 指定返回类型：&lt;code&gt;impl Trait&lt;/code&gt; 语法&lt;/h1&gt;
 &lt;h3 id=&#34;核心问题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#核心问题&#34;&gt;#&lt;/a&gt; 核心问题&lt;/h3&gt;
@@ -2336,11 +2336,11 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://soruan.github.io/2025/08/27/Programming/Rust/Trait%E4%B8%8E%E6%B3%9B%E5%9E%8B%E7%BA%A6%E6%9D%9F%EF%BC%88%E4%BA%8C%EF%BC%89/</guid>
+            <guid isPermalink="true">https://soruany.github.io/2025/08/27/Programming/Rust/Trait%E4%B8%8E%E6%B3%9B%E5%9E%8B%E7%BA%A6%E6%9D%9F%EF%BC%88%E4%BA%8C%EF%BC%89/</guid>
             <title>Trait与泛型约束（二）</title>
-            <link>https://soruan.github.io/2025/08/27/Programming/Rust/Trait%E4%B8%8E%E6%B3%9B%E5%9E%8B%E7%BA%A6%E6%9D%9F%EF%BC%88%E4%BA%8C%EF%BC%89/</link>
-            <category term="Programming" scheme="https://soruan.github.io/categories/Programming/" />
-            <category term="Rust" scheme="https://soruan.github.io/tags/Rust/" />
+            <link>https://soruany.github.io/2025/08/27/Programming/Rust/Trait%E4%B8%8E%E6%B3%9B%E5%9E%8B%E7%BA%A6%E6%9D%9F%EF%BC%88%E4%BA%8C%EF%BC%89/</link>
+            <category term="Programming" scheme="https://soruany.github.io/categories/Programming/" />
+            <category term="Rust" scheme="https://soruany.github.io/tags/Rust/" />
             <pubDate>Wed, 27 Aug 2025 21:54:39 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;trait-与泛型约束trait-bounds&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#trait-与泛型约束trait-bounds&#34;&gt;#&lt;/a&gt; Trait 与泛型约束：Trait Bounds&lt;/h1&gt;
 &lt;p&gt;&lt;code&gt;Trait&lt;/code&gt; 约束（Trait Bounds）是 Rust 泛型系统中的核心特性，它允许我们对泛型参数可以使用的类型进行限制。其功能和设计哲学与 C++20 中引入的 &lt;code&gt;Concepts&lt;/code&gt; 非常相似，主要解决了传统 C++ 模板（Templates）因“鸭子类型”而导致的编译错误信息晦涩难懂的问题。&lt;/p&gt;
@@ -2493,11 +2493,11 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://soruan.github.io/2025/08/27/Programming/Rust/Trait%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%EF%BC%88%E4%B8%80%EF%BC%89/</guid>
+            <guid isPermalink="true">https://soruany.github.io/2025/08/27/Programming/Rust/Trait%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%EF%BC%88%E4%B8%80%EF%BC%89/</guid>
             <title>Trait的基本使用（一）</title>
-            <link>https://soruan.github.io/2025/08/27/Programming/Rust/Trait%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%EF%BC%88%E4%B8%80%EF%BC%89/</link>
-            <category term="Programming" scheme="https://soruan.github.io/categories/Programming/" />
-            <category term="Rust" scheme="https://soruan.github.io/tags/Rust/" />
+            <link>https://soruany.github.io/2025/08/27/Programming/Rust/Trait%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%EF%BC%88%E4%B8%80%EF%BC%89/</link>
+            <category term="Programming" scheme="https://soruany.github.io/categories/Programming/" />
+            <category term="Rust" scheme="https://soruany.github.io/tags/Rust/" />
             <pubDate>Wed, 27 Aug 2025 21:54:13 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;一-trait-的本质定义共享行为&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#一-trait-的本质定义共享行为&#34;&gt;#&lt;/a&gt; 一、&lt;strong&gt;Trait 的本质：定义共享行为&lt;/strong&gt;&lt;/h2&gt;
 &lt;ul&gt;
@@ -2754,11 +2754,11 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://soruan.github.io/2025/08/24/Linux/%E5%AF%B9CPU%E9%AB%98%E9%80%9F%E7%BC%93%E5%AD%98%E7%9A%84%E7%90%86%E8%A7%A3/</guid>
+            <guid isPermalink="true">https://soruany.github.io/2025/08/24/Linux/%E5%AF%B9CPU%E9%AB%98%E9%80%9F%E7%BC%93%E5%AD%98%E7%9A%84%E7%90%86%E8%A7%A3/</guid>
             <title>对CPU高速缓存的理解</title>
-            <link>https://soruan.github.io/2025/08/24/Linux/%E5%AF%B9CPU%E9%AB%98%E9%80%9F%E7%BC%93%E5%AD%98%E7%9A%84%E7%90%86%E8%A7%A3/</link>
-            <category term="Linux" scheme="https://soruan.github.io/categories/Linux/" />
-            <category term="CPU缓存" scheme="https://soruan.github.io/tags/CPU%E7%BC%93%E5%AD%98/" />
+            <link>https://soruany.github.io/2025/08/24/Linux/%E5%AF%B9CPU%E9%AB%98%E9%80%9F%E7%BC%93%E5%AD%98%E7%9A%84%E7%90%86%E8%A7%A3/</link>
+            <category term="Linux" scheme="https://soruany.github.io/categories/Linux/" />
+            <category term="CPU缓存" scheme="https://soruany.github.io/tags/CPU%E7%BC%93%E5%AD%98/" />
             <pubDate>Sun, 24 Aug 2025 23:38:07 +0800</pubDate>
             <description><![CDATA[ &lt;h3 id=&#34;一-缓存失效的背后三大核心机制&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#一-缓存失效的背后三大核心机制&#34;&gt;#&lt;/a&gt; &lt;strong&gt;一、缓存失效的背后：三大核心机制&lt;/strong&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;为何CPU高速缓存中的数据会“失效”，其背后的主要机制有哪些？&lt;/strong&gt;&lt;/p&gt;
@@ -2852,11 +2852,11 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://soruan.github.io/2025/08/24/Linux/%E5%AF%B9Linux%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E7%9A%84%E7%90%86%E8%A7%A3/</guid>
+            <guid isPermalink="true">https://soruany.github.io/2025/08/24/Linux/%E5%AF%B9Linux%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E7%9A%84%E7%90%86%E8%A7%A3/</guid>
             <title>对Linux任务调度的理解</title>
-            <link>https://soruan.github.io/2025/08/24/Linux/%E5%AF%B9Linux%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E7%9A%84%E7%90%86%E8%A7%A3/</link>
-            <category term="Linux" scheme="https://soruan.github.io/categories/Linux/" />
-            <category term="任务调度" scheme="https://soruan.github.io/tags/%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6/" />
+            <link>https://soruany.github.io/2025/08/24/Linux/%E5%AF%B9Linux%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E7%9A%84%E7%90%86%E8%A7%A3/</link>
+            <category term="Linux" scheme="https://soruany.github.io/categories/Linux/" />
+            <category term="任务调度" scheme="https://soruany.github.io/tags/%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6/" />
             <pubDate>Sun, 24 Aug 2025 23:13:29 +0800</pubDate>
             <description><![CDATA[ &lt;h3 id=&#34;一-统一的调度单元任务task&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#一-统一的调度单元任务task&#34;&gt;#&lt;/a&gt; &lt;strong&gt;一、统一的调度单元：任务（Task）&lt;/strong&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Linux调度器进行上下文切换的基本单位究竟是什么，它又是如何统一进程与线程这两个概念的呢？&lt;/strong&gt;&lt;/p&gt;
@@ -2938,11 +2938,11 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://soruan.github.io/2025/08/24/SBC/%E8%B0%83%E8%AF%95USB%E6%91%84%E5%83%8F%E5%A4%B4/</guid>
+            <guid isPermalink="true">https://soruany.github.io/2025/08/24/SBC/%E8%B0%83%E8%AF%95USB%E6%91%84%E5%83%8F%E5%A4%B4/</guid>
             <title>调试USB摄像头</title>
-            <link>https://soruan.github.io/2025/08/24/SBC/%E8%B0%83%E8%AF%95USB%E6%91%84%E5%83%8F%E5%A4%B4/</link>
-            <category term="SBC" scheme="https://soruan.github.io/categories/SBC/" />
-            <category term="音视频" scheme="https://soruan.github.io/tags/%E9%9F%B3%E8%A7%86%E9%A2%91/" />
+            <link>https://soruany.github.io/2025/08/24/SBC/%E8%B0%83%E8%AF%95USB%E6%91%84%E5%83%8F%E5%A4%B4/</link>
+            <category term="SBC" scheme="https://soruany.github.io/categories/SBC/" />
+            <category term="音视频" scheme="https://soruany.github.io/tags/%E9%9F%B3%E8%A7%86%E9%A2%91/" />
             <pubDate>Sun, 24 Aug 2025 20:21:57 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;usb摄像头带麦克风和扬声器调试&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#usb摄像头带麦克风和扬声器调试&#34;&gt;#&lt;/a&gt; USB摄像头（带麦克风和扬声器）调试&lt;/h1&gt;
 &lt;p&gt;带麦克风咪头和扬声器的USB摄像头&lt;br /&gt;
