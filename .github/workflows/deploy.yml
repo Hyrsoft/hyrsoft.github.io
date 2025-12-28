@@ -27,6 +27,7 @@ jobs:
           token: ${{ secrets.DEPLOY_TOKEN }}
           path: target-repo
           # 默认只检出最新的一条记录以提高速度
+          ref: main
           fetch-depth: 1
 
       # 3. 配置 Git 用户信息 (用于提交)
