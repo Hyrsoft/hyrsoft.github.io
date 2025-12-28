@@ -10,43 +10,53 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout master repository
-      uses: actions/checkout@v3
-      # 检出主仓库的代码
+      # 1. 检出当前源代码仓库 (Source Repository)
+      # 使用 path 参数将其存放在 'source-code' 目录
+      - name: Checkout source repository
+        uses: actions/checkout@v4
+        with:
+          path: source-code
 
-    - name: Set up Git
-      run: |
-        git config --global user.name 'github-actions'
-        git config --global user.email 'actions@github.com'
-      # 配置 Git 用户名和邮箱
+      # 2. 检出目标仓库 (Target Repository)
+      # 使用 path 参数将其存放在 'target-repo' 目录
+      - name: Checkout target repository
+        uses: actions/checkout@v4
+        with:
+          repository: Hyrsoft/hyrsoft.github.io
+          # 这里必须使用具有写权限的 Personal Access Token (PAT)
+          token: ${{ secrets.DEPLOY_TOKEN }}
+          path: target-repo
+          # 默认只检出最新的一条记录以提高速度
+          fetch-depth: 1
 
-    - name: Clone target repository
-      run: |
-        git clone https://github.com/Hyrsoft/hyrsoft.github.io.git target-repo
-      # 克隆目标仓库到 `target-repo` 目录
+      # 3. 配置 Git 用户信息 (用于提交)
+      - name: Set up Git config
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
-    - name: Copy public folder to target repository
-      run: |
-        cp -r public/* target-repo/
-      # 复制 `public` 文件夹内容到目标仓库
+      # 4. 同步文件
+      # 将源代码仓库中的 public 文件夹内容复制到目标仓库根目录
+      - name: Sync public folder
+        run: |
+          # 确保目标文件夹存在，或者根据需要清空目标仓库中旧的文件
+          # rm -rf target-repo/* # 如果你想执行完全同步（删除目标仓库多余文件），取消此行注释
+          
+          cp -rv source-code/public/* target-repo/
 
-    - name: Commit and push changes
-      env:
-        DEPLOY_KEY: ${{ secrets.DEPLOY_TOKEN }}
-      run: |
-        cd target-repo
-        git add .
-        # 尝试提交更改
-        if git commit -m 'Sync public folder from master repository'; then
-          echo "Commit successful"
-        else
-          echo "Commit failed, forcing commit"
-          # 如果提交失败，强制提交
-          git add --all
-          git commit -m 'Force sync public folder from master repository'
-        fi
-        # 设置目标仓库的远程 URL
-        git remote set-url origin https://x-access-token:${DEPLOY_KEY}@github.com/Hyrsoft/hyrsoft.github.io.git
-        # 尝试推送更改
-        git push origin main || git push origin main --force
-        # 如果推送失败，则强制推送
+      # 5. 检测变化并提交推送
+      - name: Commit and push changes
+        run: |
+          cd target-repo
+          
+          # 检查是否有文件变动
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No changes detected. Skipping commit."
+            exit 0
+          fi
+          
+          git add .
+          git commit -m "Sync: update content from source repository ($(date +'%Y-%m-%d %H:%M:%S'))"
+          
+          # 因为 checkout 步骤已经通过 Token 处理了鉴权，这里直接 push 即可
+          git push origin main
