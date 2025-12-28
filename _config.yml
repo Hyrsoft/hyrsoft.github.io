@@ -12,7 +12,7 @@ timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://soruany.github.io
+url: https://hyrsoft.github.io
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -109,7 +109,7 @@ theme: shokax # 主题名称，确保已安装对应主题
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://github.com/Soruany/soruany.github.io.git
+  repo: https://github.com/Hyrsoft/hyrsoft.github.io.git
   branch: main 
 
 markdown:
