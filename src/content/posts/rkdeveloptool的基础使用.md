@@ -3,7 +3,7 @@ title: rkdeveloptool
 published: 2025-11-21
 description: 'rkdeveloptool的基础使用'
 image: ''
-tags: [linux rockchip]
+tags: [linux, rockchip]
 category: 'tools'
 draft: false 
 lang: ''

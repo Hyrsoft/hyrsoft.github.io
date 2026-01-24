@@ -3,7 +3,7 @@ title: Conan+CMake基本编译流程
 published: 2025-10-21
 description: '在CMake构建的项目中使用Conan2作为包管理器'
 image: ''
-tags: [CMake Conan]
+tags: [CMake, Conan]
 category: 'C++'
 draft: false 
 lang: ''
