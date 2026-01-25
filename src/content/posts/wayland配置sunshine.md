@@ -64,7 +64,7 @@ sudo setcap cap_sys_admin+ep $(readlink -f $(which sunshine))
 | **检查项**      | **命令**                            | **说明**                              |
 | --------------- | ----------------------------------- | ------------------------------------- |
 | **Portal 插件** | `pacman -Qs xdg-desktop-portal-kde` | 确保安装了针对 KDE 的 Portal 接口实现 |
-| **KMS 状态**    | `lsmod                              | grep nvidia`                          |
+| **KMS 状态**    | `nvidia-smi`                          | 确保加载了Nvidia显卡驱动 |
 
 ------
 
