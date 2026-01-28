@@ -1,5 +1,5 @@
 ---
-title: Arch Linux通过Distrobox运行Vivado2020
+title: Arch Linux通过Distrobox运行Vivado
 published: 2026-01-26
 description: '摆脱Ubuntu虚拟机难用的图形化界面和繁琐的配置'
 image: './image.png'
@@ -98,7 +98,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 
 ```bash
 # 根据安装时的具体位置
-source /tools/Xilinx/Vivado/2022.2/settings64.sh
+source /tools/Xilinx/Vivado/2020.2/settings64.sh
 
 # 启动Vivado的图形化界面
 vivado
