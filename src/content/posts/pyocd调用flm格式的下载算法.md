@@ -1,6 +1,6 @@
 ---
 title: pyocd调用flm格式的下载算法
-published: 2025-10-03
+published: 2025-08-03
 description: 'flm格式可由keil mdk生成，相比openocd的下载算法更好维护'
 image: ''
 tags: [pyocd, keil, mcu]
