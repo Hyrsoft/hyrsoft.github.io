@@ -1,5 +1,5 @@
 ---
-title: RV1106的RK_MPI视频流与AI推理链路分析
+title: 毕设日志（一） RV1106的RK_MPI视频流与AI推理链路分析
 published: 2026-01-30
 description: '主要分析 luckfox_pico_rtsp_retinaface_osd 例程，探讨其如何实现摄像头采集、NPU 推理、硬件编码及 RTSP 推流的完整链路'
 image: ''

@@ -1,6 +1,6 @@
 ---
 title: 使用pyocd进行mcu的烧录和调试
-published: 2025-04-25
+published: 2025-04-23
 description: ''
 image: ''
 tags: [pyocd, mcu]
