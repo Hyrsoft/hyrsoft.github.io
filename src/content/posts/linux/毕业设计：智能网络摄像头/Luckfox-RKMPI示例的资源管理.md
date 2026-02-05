@@ -1,5 +1,5 @@
 ---
-title: 毕设日志（二）Luckfox-RKMPI示例的资源管理分析
+title: 毕设日志（二）Luckfox RKMPI示例的资源管理分析
 published: 2026-01-31
 description: '分析 luckfox_pico_rtsp_retinaface_osd 例程中对媒体资源的处理，并阐述毕设思路'
 image: ''
@@ -8,7 +8,7 @@ category: 'linux'
 draft: false 
 lang: ''
 ---
-分析 [`luckfox_pico_rtsp_retinaface_osd` 例程](https://github.com/LuckfoxTECH/luckfox_pico_rkmpi_example/blob/kernel-5.10.160/example/luckfox_pico_rtsp_retinaface_osd/src/main.cc)
+分析 [`luckfox_pico_rtsp_retinaface_osd`](https://github.com/LuckfoxTECH/luckfox_pico_rkmpi_example/blob/kernel-5.10.160/example/luckfox_pico_rtsp_retinaface_osd/src/main.cc)例程
 
 ::github{repo="LuckfoxTECH/luckfox_pico_rkmpi_example"}
 
@@ -61,7 +61,7 @@ static void *GetMediaBuffer(void *arg) {
 
 ### 2. `VENC_STREAM_S`编码数据帧分析
 
-其中，主要的帧格式是`VENC_STREAM_S`，可以看到它封装了venc支持的编码格式
+其中，主要的帧格式是`VENC_STREAM_S`，可以看到它封装了 VENC 支持的编码格式
 
 ```cpp
 /* Defines the features of an stream */
@@ -90,7 +90,7 @@ typedef struct rkVENC_STREAM_S {
 
 ### 1. NPU推理线程分析
 
-利用`RK_MPI_VI_GetChnFrame`从VI通道获取原始数据帧，再利用opencv-mobile进行格式转换和缩放，最后用RGN，在VENC编码前将OSD合入视频帧
+利用`RK_MPI_VI_GetChnFrame`从 VI 通道获取原始数据帧，再利用 **opencv-mobile** 进行格式转换和缩放，最后用 RGN，在 VENC 编码前将 OSD 合入视频帧
 
 - **格式转换**：将 **NV12** 转换为 **BGR**
 
@@ -180,13 +180,13 @@ typedef struct rkVIDEO_FRAME_INFO_S {
 
 ## 三、毕设软件设计思路
 
-也就是说，对于我毕业设计这个需求，我需要处理两种格式，一是**VENC**编码后的**H.264**视频流，二是从**VI**通道直接获取的原始数据帧。**rkmpi**实际上已经做了一定程度的封装了，我应该在它封装的基础上进行管理，而不是拆开它们再自己封装。
+也就是说，对于我毕业设计这个需求，我需要处理两种格式，一是 VENC 编码后的 H.264 视频流，二是从 VI 通道直接获取的原始数据帧。rkmpi 实际上已经做了一定程度的封装了，我应该在它封装的基础上进行管理，而不是拆开它们再自己封装。
 
 ### 1.  使用`std::share_ptr`和自定义删除器来封装数据帧
 
-原始帧和编码流虽然接口不同，但是它们的使用都符合这么一个逻辑：每一次循环开始时，先获取，进行处理，再释放。对于线性场景，比如**VENC**编码后，交由**RTSP**进行推流，那么可以在循环中执行上述逻辑。
+原始帧和编码流虽然接口不同，但是它们的使用都符合这么一个逻辑：每一次循环开始时，先获取，进行处理，再释放。对于线性场景，比如 VENC 编码后，交由 RTSP 进行推流，那么可以在循环中执行上述逻辑。
 
-但是对于我毕设的需求来说，编码流会可能会同时用于**RTSP**、**WebRTC**推流和本地保存，那么上述逻辑就会变得复杂且难以处理。此时适合使用`std::share_ptr`结合**自定义删除器**来进行处理，不同场景共享引用计数，只有当所有引用都结束后，再结束它的生命周期，进行析构（释放资源）。
+但是对于我毕设的需求来说，编码流会可能会同时用于 RTSP、WebRTC 推流和本地保存，那么上述逻辑就会变得复杂且难以处理。此时适合使用`std::shared_ptr`结合**自定义删除器**来进行处理，不同场景共享引用计数，只有当所有引用都结束后，再结束它的生命周期，进行析构（释放资源）。
 
 以下是对编码流的处理，原始帧类似
 
@@ -235,9 +235,9 @@ inline EncodedStreamPtr acquire_encoded_stream(RK_S32 chn_id, RK_S32 timeout_ms 
 
 **多路共享**：即使 RTSP 线程因为网络抖动卡住了，WebRTC 处理完后引用计数减 1，等到 RTSP 也处理完，引用计数归零，MPI 资源自动释放。
 
-缺点就是：VENC的缓冲池是有限的，如果 RTSP 和 WebRTC 任何一方长时间持有指针不释放，会导致 VENC 模块因为拿不到空闲 Buffer 而阻塞或丢帧。
+缺点就是：VENC的缓冲池是有限的，如果 RTSP 和 WebRTC 任何一方长时间持有指针不释放，会导致 VENC 模块因为拿不到空闲 Buffer 而阻塞或丢帧。后续应该引入**丢帧机制**或**超时强制释放**。如果某个消费者（如本地保存）处理太慢，应该主动`reset()`掉该路指针，宁可丢帧也不要阻塞采集前端。
 
 ### 2. 针对 AI 推理的原始帧处理 (VI → RKNN)
 
-对于推理用的原始数据帧，它的路径和所有权比较明确，毕竟同时只会有一个AI推理的线程存在。
+对于推理线程使用的原始数据帧，它的路径和所有权比较明确，毕竟同时只会有一个 AI 推理的线程存在。
 
