@@ -17,12 +17,12 @@ export const siteConfig: SiteConfig = {
 	},
 	banner: {
 		enable: true,
-		src: "assets/images/banner_miku_4k.png", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
+		src: "assets/images/banner_suzeme_4k_wallpaper.png", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
 		position: "center", // Equivalent to object-position, only supports 'top', 'center', 'bottom'. 'center' by default
 		credit: {
 			enable: true, // Display the credit text of the banner image
-			text: "", // Credit text to be displayed
-			url: "", // (Optional) URL link to the original artwork or artist's page
+			text: "Skebのリクエストありがとうございました🌸", // Credit text to be displayed
+			url: "https://x.com/cloneko_oo/status/2021494569318412608", // (Optional) URL link to the original artwork or artist's page
 		},
 	},
 	toc: {
@@ -53,7 +53,7 @@ export const navBarConfig: NavBarConfig = {
 };
 
 export const profileConfig: ProfileConfig = {
-	avatar: "assets/images/avatar.jpg", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
+	avatar: "assets/images/avatar.png", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
 	name: "好软好温暖",
 	bio: "生活有多种可能性",
 	links: [
