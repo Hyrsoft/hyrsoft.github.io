@@ -3,14 +3,14 @@ title: 毕设日志（四）NPU 推理与硬件资源分配
 published: 2026-02-12
 description: '添加 NPU 推理模块时触到了硬件性能瓶颈'
 image: './images/NPU推理与硬件资源分配.png'
-tags: [rknn, 异构计算, c++, rockit]
+tags: [rknn, 异构计算, C++, rockit]
 category: 'linux'
 draft: false 
 lang: ''
 ---
-经过漫长的摸索和Debug，我意识到在 RV1106G3 这个单核A7 + 256MB DDR3 的嵌入式设备上，再精妙的设计也要向现实妥协：之前设想的异构并行逻辑，受限于 DDR3 的带宽，导致 NPU 获取图像超时，产生运行时报错。只能退而求其次，先用最原始的串行逻辑，就算显示帧率感人，CPU 占用高，但先把基础功能实现了，再谈性能优化。
+经过漫长的摸索和 Debug，我意识到在 RV1106G3 这个单核 A7 + 256MB DDR3 的嵌入式设备上，再精妙的设计也要向现实妥协：之前设想的异构并行逻辑，受限于 DDR3 的带宽，导致 NPU 获取图像超时，产生运行时报错。只能退而求其次，先用最原始的串行逻辑，就算显示帧率感人，CPU 占用高，但先把基础功能实现了，再谈性能优化。
 
-[Luckfox 的 RKMPI 例程](https://wiki.luckfox.com/zh/Luckfox-Pico-Zero/MPI)中提供了 YOLOv5 和 Retainface 两种示例，虽然都是 NPU 推理，但是硬件资源分配和视频流处理的逻辑大不相同，其中，YOLOv5 推理对性能要求是比 Reatinface 高很多的。
+[Luckfox 的 RKMPI 例程](https://wiki.luckfox.com/zh/Luckfox-Pico-Zero/MPI)中提供了 YOLOv5 和 Retainface 两种示例，虽然都是 NPU 推理，但是硬件资源分配和视频流处理的逻辑大不相同，其中，YOLOv5 推理对性能要求是比 Retainface 高很多的。
 
 ::github{repo="LuckfoxTECH/luckfox_pico_rkmpi_example"}
 
