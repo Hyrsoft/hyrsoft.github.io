@@ -1,5 +1,5 @@
 ---
-title: 一个视频讲清楚嵌入式Linux交叉编译
+title: 视频文案：一个视频讲清楚嵌入式Linux交叉编译
 published: 2026-02-19
 description: '嵌入式Linux交叉编译的基础概念和技巧'
 image: ''

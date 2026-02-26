@@ -3,7 +3,7 @@ title: 毕设日志（一） Luckfox RK_MPI示例视频流与AI推理链路分�
 published: 2026-01-30
 description: '主要分析 luckfox_pico_rtsp_retinaface_osd 例程，探讨其如何实现摄像头采集、NPU 推理、硬件编码及 RTSP 推流的完整链路'
 image: ''
-tags: [RV1106, rockit, webrtc, yolo, rtsp, mpp]
+tags: [rv1106, rockit, webrtc, yolo, rtsp, mpp]
 category: 'linux'
 draft: false 
 lang: ''
